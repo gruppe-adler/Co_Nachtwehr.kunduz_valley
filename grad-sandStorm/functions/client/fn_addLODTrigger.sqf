@@ -15,10 +15,10 @@ player setVariable ["ODE_LODTriggerCreated", true];
 // rate there is barely visible but saves a large slice of the particle budget.
 private _LODLevel =
 [
-	[500,[0.2, 0.2]],
-	[1000,[0.4, 0.4]],
-	[2000,[1.0, 0.7]],
-	[3500,[1.8, 1.0]],
+	[500,[0.15, 0.25]],
+	[1000,[0.25, 0.4]],
+	[2000,[0.8, 0.9]],
+	[3500,[1.9, 2]],
 	[7000,[4, 4]]
 ];
 

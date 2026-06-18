@@ -6,6 +6,12 @@ private _updateRate = 1;
 GRAD_sandstorm_wallBrightnessOutside = 2.2;
 GRAD_sandstorm_wallBrightnessInside = 0.5;
 
+// How far INSIDE the storm edge the effects (post-processing, fog, leaves) switch on.
+// The storm trigger is the full radius, but the visible particle wall starts ~155m
+// inside it, so without this inset the PP kicks in before you reach the dust.
+// Larger value = effects start later (deeper into the storm).
+GRAD_sandstorm_effectInset = 145;
+
 if (GRAD_SANDSTORM_DEBUG) then {
     diag_log "add local sandwall";
 };
@@ -123,7 +129,13 @@ missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIden
         };
     };
 
-    if ((vehicle player) inArea _trigger) then {
+    // Effects activate when the player is within the storm radius minus an inset,
+    // i.e. roughly when they reach the visible particle wall (not the trigger edge).
+    private _stormRadius = missionNamespace getVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIdentifier], (triggerArea _trigger) select 0];
+    private _effectRadius = _stormRadius - GRAD_sandstorm_effectInset;
+    private _insideEffects = ((vehicle player) distance2D _helperObject) < _effectRadius;
+
+    if (_insideEffects) then {
 
         // playSound ["A3\sounds_f\ambient\winds\wind-synth-fast.wss", player];
 

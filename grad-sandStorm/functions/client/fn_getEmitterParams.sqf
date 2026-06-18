@@ -9,35 +9,38 @@ private _params = [];
 switch (_type) do {
 
 	case "borderBottom" : {
+		// denser, lower wall: short life + low vertical velocity keep the particles
+		// near the ground (less vertical travel) so the LOD can spawn more of them
+		// for the same budget. alpha curve ramps up over the first ~15% = short fade-in.
 		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 6 + random 2,
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 5 + random 1.5,
 				    [0,0,0], //position
-				    [random 1 - random 2,random 1 - random 2,100 + random 5], // move velocity
+				    [random 1 - random 2,random 1 - random 2,25 + random 5], // move velocity (low vertical)
 				    25,         // rotation
 				    2000, // weight
 				    30, // volume
 				    15, // rubbing
 				    [
-				        30,
-				        40,
-				        50,
-				        60,
+				        25,
+				        35,
+				        45,
+				        55,
+				        65,
 				        70,
+				        75,
 				        80,
-				        100,
-				        110,
-				        120,
-				        130,
-				        130,
-				        130
+				        85,
+				        90,
+				        90,
+				        90
 				    ],
 				    [
 				        [0,0,0,0],
-				        [0,0,0,1],
+				        [0.03,0.03,0.03,0.35],
+				        [0.05,0.05,0.05,0.75],
 				        [0.05,0.05,0.05,0.9],
-				        [0.05,0.05,0.05,0.88],
-				        [0.06,0.06,0.06,0.85],
-				        [0.07,0.07,0.07,0.82],
+				        [0.06,0.06,0.06,0.88],
+				        [0.07,0.07,0.07,0.85],
 				        [0.1,0.1,0.1,0.9],
 				        [0.3,0.2,0.2,0.7],
 				        [0.4,0.3,0.3,0.6],
@@ -45,8 +48,8 @@ switch (_type) do {
 				        [0.4,0.3,0.3,0.4],
 				        [0.4,0.3,0.3,0]
 				    ],
-				    [0.08], 
-				    0.1, 
+				    [0.08],
+				    0.1,
 				    0.1, "", "", _emitter
 				];
 	};
