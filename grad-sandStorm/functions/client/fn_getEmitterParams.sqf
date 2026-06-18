@@ -8,9 +8,9 @@ private _params = [];
 
 switch (_type) do {
 
-	case "borderBottom" : { 
+	case "borderBottom" : {
 		_params = [
-				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 10 + random 5, 
+				    ["\A3\data_f\cl_basic.p3d", 1, 0, 1], "", "Billboard", 1, 6 + random 2,
 				    [0,0,0], //position
 				    [random 1 - random 2,random 1 - random 2,100 + random 5], // move velocity
 				    25,         // rotation

@@ -21,9 +21,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={3286.8589,166.98349,7956.793};
-		dir[]={0.43688801,-0.41043597,-0.80042768};
-		up[]={0.19664016,0.91188467,-0.36026695};
-		aside[]={-0.87776691,-2.4549081e-07,-0.47910285};
+		dir[]={0.43688607,-0.41043311,-0.80042189};
+		up[]={0.19663817,0.91189075,-0.3602621};
+		aside[]={-0.87776083,1.4901161e-08,-0.47909918};
 	};
 };
 binarizationWanted=0;
@@ -9002,7 +9002,7 @@ class Mission
 			name="convoyroute_10";
 			type="mil_arrow";
 			colorName="ColorWEST";
-			angle=28.184427;
+			angle=28.184422;
 			id=1694;
 			atlOffset=-3.4332275e-05;
 		};
@@ -9124,7 +9124,7 @@ class Mission
 			name="convoyroute_22";
 			type="mil_arrow";
 			colorName="ColorWEST";
-			angle=172.1348;
+			angle=172.13477;
 			id=1706;
 		};
 		class Item106
@@ -9134,7 +9134,7 @@ class Mission
 			name="convoyroute_23";
 			type="mil_arrow";
 			colorName="ColorWEST";
-			angle=172.13478;
+			angle=172.13477;
 			id=1707;
 		};
 		class Item107

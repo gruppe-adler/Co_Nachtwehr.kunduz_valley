@@ -10,14 +10,16 @@ if (player getVariable ["ODE_LODTriggerCreated", false]) exitWith {};
 player setVariable ["ODE_LODTriggerCreated", true];
 
 
-// distance, multiplier of droprate
+// distance, [defaultDropInterval, fillerDropInterval] - higher = fewer particles.
+// Far rings are throttled hard: distant wall is small on screen, so a low spawn
+// rate there is barely visible but saves a large slice of the particle budget.
 private _LODLevel =
 [
 	[500,[0.2, 0.2]],
 	[1000,[0.4, 0.4]],
-	[2000,[0.6, 0.4]],
-	[3500,[0.9, 0.5]],
-	[7000,[2, 2]]
+	[2000,[1.0, 0.7]],
+	[3500,[1.8, 1.0]],
+	[7000,[4, 4]]
 ];
 
 // [500,[0.2, 0.2]],

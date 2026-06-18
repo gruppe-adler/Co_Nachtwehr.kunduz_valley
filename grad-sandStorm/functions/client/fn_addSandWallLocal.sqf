@@ -29,7 +29,10 @@ if (!GRAD_SANDSTORM_DEBUG) then {
     _markerstr setMarkerAlphaLocal 0;
 };
 
-[_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createParticleBorder;
+private _stormRadius = (triggerArea _trigger) select 0;
+missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIdentifier], _stormRadius];
+
+[_trigger, _stormRadius - 50, 50, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createParticleBorder;
 
 // player starts outside the wall, so light it for moonlight viewing
 [_sandstormIdentifier, GRAD_sandstorm_wallBrightnessOutside] call GRAD_sandstorm_fnc_setEmitterBrightness;
@@ -82,7 +85,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
          _markerstr setMarkerPos (getPos vehicle player);
     };
 
-    // 
+    //
     ["borderBottom", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["fillerSmall", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
     ["filler", _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_setEmitterLOD;
