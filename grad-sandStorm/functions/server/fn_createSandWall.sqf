@@ -2,11 +2,12 @@
 
     createSandWall
 
-    [[10217.7,2833.75,0], 2, 285] call GRAD_sandstorm_fnc_createSandWall;
+    [[10217.7,2833.75,0], 3000, 20, 285] call GRAD_sandstorm_fnc_createSandWall;
+    // [_position, _size, _speed, _dir]
 
 */
 
-params ["_position", "_size", "_speed", "_dir"];
+params ["_position", "_size", "_speed", ["_dir", windDir]];
 
 private _existingSandstormsCount = missionNamespace getVariable ["GRAD_sandstorm_existingSandstormCount", 0];
 private _id = _existingSandstormsCount + 1;
@@ -28,11 +29,13 @@ _helperObject setVectorUp [0,0,1];
 _trigger attachTo [_helperObject];
 _triggerSound attachTo [_helperObject];
 
-// systemChat "add server wall";
-// diag_log "add server wall";
+if (GRAD_SANDSTORM_DEBUG) then {
+    systemChat "add server wall";
+    diag_log "add server wall";
+};
 
 [
-    _trigger, 
+    _trigger,
     _triggerSound, 
     _helperObject, 
     _identifier
@@ -48,14 +51,23 @@ private _wSpeed = [wind, _speed] call BIS_fnc_vectorMultiply;
 setWind [_wSpeed select 0, _wSpeed select 1, true];
 // 5 setGusts 0.35;
 
-private _markerstr = createMarker [format ["grad-sandstorm_debugmarker_%1", _identifier], _position];
+// Zeus-only situational marker showing the storm position.
+// Created globally (so the server PFH can move it), hidden for everyone,
+// then revealed locally on curator clients only.
+private _markerstr = createMarker [format ["grad-sandstorm_zeusmarker_%1", _identifier], _position];
 _markerstr setMarkerShape "ELLIPSE";
 _markerstr setMarkerSize [_size, _size];
-_markerstr setMarkerColor "ColorRed";
+_markerstr setMarkerColor "ColorOrange";
+_markerstr setMarkerText "Sandstorm";
 _markerstr setMarkerAlpha 0;
 
-systemChat "add server marker";
-diag_log "add server marker";
+// reveal to curators only
+[_markerstr] remoteExec ["GRAD_sandstorm_fnc_revealZeusMarker", 0, _markerstr];
+
+if (GRAD_SANDSTORM_DEBUG) then {
+    systemChat "add server marker";
+    diag_log "add server marker";
+};
 
 [{
     params ["_args", "_handle"];
@@ -63,9 +75,15 @@ diag_log "add server marker";
 
     if (isNull _helperObject) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-        systemChat "sandstorm: removing as marker is null";
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat "sandstorm: removing as helper is null";
+            diag_log "sandstorm: removing as helper is null";
+        };
         deleteVehicle _trigger;
         deleteVehicle _triggerSound;
+        // clear the JIP reveal message and the marker on all clients
+        [_markerstr] remoteExec ["GRAD_sandstorm_fnc_revealZeusMarker", 0, _markerstr];
+        deleteMarker _markerstr;
     };
 
     private _dir = windDir;
@@ -94,8 +112,13 @@ diag_log "add server marker";
     _newPos params ["_xPos", "_yPos"];
     
     if (_xPos < -_size || _xPos > (worldSize + _size) || _yPos < -_size || _yPos > (worldSize+_size)) then {
+        // deleting the helper detaches+deletes the attached triggers and trips the
+        // isNull check above next frame, which removes the marker and JIP message
         deleteVehicle _helperObject;
-        systemChat "deleting trigger out of map";
+        if (GRAD_SANDSTORM_DEBUG) then {
+            systemChat "deleting sandstorm out of map";
+            diag_log "deleting sandstorm out of map";
+        };
     };
     
 }, 1, [_helperObject, _trigger, _triggerSound, _size, _speed, _markerstr]] call CBA_fnc_addPerFrameHandler;

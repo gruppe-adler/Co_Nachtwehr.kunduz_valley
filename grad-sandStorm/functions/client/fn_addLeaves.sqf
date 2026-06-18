@@ -18,4 +18,4 @@ _leaves setParticleParams [
 [_WindVectorX*10, _WindVectorY*10, 3], 2, 0.000001, 0.0, 0.1, [0.5 + random 0.5], [[0.68,0.68,0.68,1]], [1.5,1], 13, 13, "", "", vehicle player, 0, true ,1, [[0,0,0,0]]];
 _leaves setDropInterval 0.5;
 
-[_leaves, _leaves]
+[_sticks, _leaves]

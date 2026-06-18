@@ -78,13 +78,22 @@ if (_inBuilding) then {
 
     setAperture _apertureInBuilding;
 
-    {if (_building animationPhase _x > 0.2) then {nearestdoor = _x}} forEach _doors;
+    // muffle further if every nearby door is shut
+    private _building = nearestObject [player, "HouseBase"];
+    private _doors = [];
+    if (!isNull _building) then {
+        private _i = 1;
+        while {(_building selectionPosition (format ["door_%1", _i])) isNotEqualTo [0,0,0]} do {
+            _doors pushBack (format ["door_%1", _i]);
+            _i = _i + 1;
+        };
+    };
 
-    if (_building animationPhase nearestdoor < 0.2) then {
-        doorclosed = true;
+    private _anyDoorOpen = _doors findIf {(_building animationPhase _x) > 0.2} > -1;
+
+    if (!_anyDoorOpen) then {
         0.5 fadeMusic 0.40;
     } else {
-        doorclosed = false;
         0.5 fadeMusic 0.50;
     };
 };

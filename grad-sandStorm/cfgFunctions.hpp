@@ -29,6 +29,7 @@ class GRAD_sandstorm {
           class inBuilding;
 
           class removePostProcessing;
+          class revealZeusMarker;
 
           class setEmitterLOD;
   };

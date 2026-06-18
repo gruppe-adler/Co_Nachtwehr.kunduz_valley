@@ -83,9 +83,6 @@ class RscTitles {
     };
 };
 
-class cfgMusic {
-  #include "grad-sandstorm\cfgMusic.hpp"
-};
 
 //NOTIFICATIONS ================================================================
 class CfgNotifications
@@ -116,6 +113,7 @@ class CfgSounds {
 //MUSIC =======================================================================
 class CfgMusic {
 	#include "USER\userMusic.hpp"
+	#include "grad-sandstorm\cfgMusic.hpp"
 };
 
 //GRAD LOADOUT =================================================================

@@ -44,6 +44,30 @@ if (!GRAD_SANDSTORM_DEBUG) then {
         ["borderBottom", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
         ["fillerSmall", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
         ["filler", _sandstormIdentifier] call GRAD_sandstorm_fnc_clearEmitterArray;
+
+        // if the storm died while the player was still inside it, restore their state
+        if (player getVariable ["isInsideSandstorm", false]) then {
+            player setVariable ["isInsideSandstorm", false];
+            private _pp = player getVariable ["isInsideSandstormPP", []];
+            private _leaves = player getVariable ["isInsideSandstormLeaves", []];
+            [_pp] call GRAD_sandstorm_fnc_removePostProcessing;
+
+            player setVariable ["tf_receivingDistanceMultiplicator", 1];
+            player setVariable ["tf_sendingDistanceMultiplicator", 1];
+
+            { deleteVehicle _x } forEach _leaves;
+        };
+
+        // restore world fog and music
+        0 setFog 0;
+        setAperture -1;
+        private _soundeffect = player getVariable ["sandStormSoundEH", -1];
+        if (_soundeffect > -1) then {
+            removeMusicEventHandler ["MusicStop", _soundeffect];
+            player setVariable ["sandStormSoundEH", -1];
+            playMusic "";
+            0 fadeMusic 1;
+        };
     };
 
     if (GRAD_SANDSTORM_DEBUG) then {
@@ -82,6 +106,7 @@ if (!GRAD_SANDSTORM_DEBUG) then {
                     playMusic "";
 
                     removeMusicEventHandler ["MusicStop", _soundeffect];
+                    player setVariable ["sandStormSoundEH", -1];
                     0 fadeMusic 1;
                 };
             }, [_soundeffect], 10] call CBA_fnc_waitAndExecute;

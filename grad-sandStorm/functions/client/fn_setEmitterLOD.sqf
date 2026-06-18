@@ -26,8 +26,8 @@ for "_i" from 0 to (_LODCount-1) do {
 
 	private _triggerIdentifier = format ["ODE_LODTrigger_%1", _i];
 	private _trigger = player getVariable [_triggerIdentifier, objNull];
-	private _positions = _arrayWorkingCopy inAreaArray _trigger;
-	private _positionsForThisLOD = _positions arrayIntersect _arrayWorkingCopy;
+	// inAreaArray already returns the subset of the working copy inside this ring
+	private _positionsForThisLOD = _arrayWorkingCopy inAreaArray _trigger;
 	_arrayWorkingCopy = _arrayWorkingCopy - _positionsForThisLOD;
 
 	//systemChat format ["positions %1 in _positionsForThisLOD %2", count _positionsForThisLOD, _i];
@@ -37,10 +37,13 @@ for "_i" from 0 to (_LODCount-1) do {
 	} forEach _positionsForThisLOD;
 };
 
+// emitters outside every LOD ring: throttle to a moderate interval AND stop
+// simulation. A huge interval (e.g. 10000) is not used here because the source
+// has to finish its current tick before speeding back up, which leaves a long
+// gap when the emitter re-enters range. A moderate cap keeps re-entry snappy.
 if (count _arrayWorkingCopy > 0) then {
 	{
-		// systemChat "disabling emitter";
-	  	_x enableSimulation false; // todo check if this actually works
-	  	// _x setDropInterval 3;
+		_x setDropInterval 5;
+		_x enableSimulation false;
 	} forEach _arrayWorkingCopy;
 };
