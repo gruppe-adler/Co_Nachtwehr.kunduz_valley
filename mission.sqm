@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2148.3662,28.415249,9145.2646};
-		dir[]={0.14496006,-0.52939272,-0.83594495};
-		up[]={0.090452023,0.8483572,-0.52162135};
-		aside[]={-0.98532569,2.8264185e-07,-0.17086188};
+		pos[]={1976.6023,21.627321,9165.9727};
+		dir[]={0.51523578,-0.42854014,0.74221659};
+		up[]={0.24437591,0.90352267,0.35203275};
+		aside[]={0.82146966,1.4901161e-08,-0.57025212};
 	};
 };
 binarizationWanted=0;
@@ -5649,17 +5649,93 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1978.0024,14.64823,9183.6709};
-				angles[]={0,2.2916458,0.029989703};
+				position[]={1978.002,14.648362,9183.6709};
+				angles[]={0,2.2916522,0.029984757};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				init="[this] call grad_healingMechanism_fnc_healUnitLoop;";
+				textures="Fleck";
 			};
 			id=1520;
 			type="BWA3_NH90_TTH_Fleck";
-			atlOffset=0.13485432;
+			atlOffset=0.13500023;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="VehicleCustomization";
+					expression="if (local _this) then {([_this] + _value + [true]) call (uinamespace getvariable 'BIS_fnc_initVehicle')};";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+							class value
+							{
+								items=2;
+								class Item0
+								{
+									class data
+									{
+										singleType="ARRAY";
+										class value
+										{
+											items=2;
+											class Item0
+											{
+												class data
+												{
+													singleType="STRING";
+													value="Fleck";
+												};
+											};
+											class Item1
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=1;
+												};
+											};
+										};
+									};
+								};
+								class Item1
+								{
+									class data
+									{
+										singleType="ARRAY";
+										class value
+										{
+											items=2;
+											class Item0
+											{
+												class data
+												{
+													singleType="STRING";
+													value="hide_SferiSense";
+												};
+											};
+											class Item1
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=0;
+												};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item22
 		{
@@ -8144,7 +8220,7 @@ class Mission
 			};
 			id=1674;
 			type="gm_ge_army_u1300l_firefighter";
-			atlOffset=-9.5367432e-07;
+			atlOffset=-0.0004940033;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -8454,6 +8530,7 @@ class Mission
 			};
 			id=1677;
 			type="gm_ge_army_typ247_cargo";
+			atlOffset=-0.0031852722;
 			class CustomAttributes
 			{
 				class Attribute0

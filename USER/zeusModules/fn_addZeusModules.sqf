@@ -31,65 +31,6 @@
 
 
 
-["Fallen Angel - Ambient", "Music Radio",
-    {
-      // Get all the passed parameters
-      params ["_position", "_object"];
-      _position = ASLToAGL _position;
-
-      private _radio = (selectRandom ["land_gm_euro_furniture_radio_01", "jbad_radio_b", "Land_FMradio_F"]) createVehicle [0,0,0];
-      _radio setPos _position;
-      _radio setDir (random 360);
-
-      private _music = (selectRandom ["arabicsong1", "arabicsong2", "arabicsong3"]);
-      private _source = createSoundSource [_music, _position, [], 0];
-      [_source, _music, _radio, false] call grad_ambient_fnc_soundSourceHelper;
-      
-      {
-        _x addCuratorEditableObjects [[_radio], false];
-      } forEach allCurators;
-
-    }] call zen_custom_modules_fnc_register;
-
-
-["Fallen Angel - Reinforcements", "Unarmed Vodnik", {
-	params ["_position", "_object"];
-
-	["UK3CB_CSAT_B_O_GAZ_Vodnik", ASLToAGL _position] call FA_fnc_spawnReinforcements;
-}] call zen_custom_modules_fnc_register;
-
-["Fallen Angel - Reinforcements", "Unarmed Tigr", {
-	params ["_position", "_object"];
-
-	["UK3CB_CSAT_B_O_Tigr", ASLToAGL _position] call FA_fnc_spawnReinforcements;
-}] call zen_custom_modules_fnc_register;
-
-["Fallen Angel - Reinforcements", "Unarmed Offroad", {
-	params ["_position", "_object"];
-
-	["UK3CB_CSAT_B_O_Offroad_Unarmed", ASLToAGL _position] call FA_fnc_spawnReinforcements;
-}] call zen_custom_modules_fnc_register;
-
-["Fallen Angel - Reinforcements", "Unarmed Kamaz", {
-	params ["_position", "_object"];
-
-	["UK3CB_CSAT_B_O_Kamaz_Covered", ASLToAGL _position] call FA_fnc_spawnReinforcements;
-}] call zen_custom_modules_fnc_register;
-
-["Fallen Angel - Reinforcements", "Unarmed GAZ-66", {
-	params ["_position", "_object"];
-
-	["UK3CB_CSAT_B_O_Gaz66_Covered", ASLToAGL _position] call FA_fnc_spawnReinforcements;
-}] call zen_custom_modules_fnc_register;
-
-["Fallen Angel - Reinforcements", "Unarmed UAZ", {
-	params ["_position", "_object"];
-
-	["UK3CB_CSAT_B_O_UAZ_Closed", ASLToAGL _position] call FA_fnc_spawnReinforcements;
-}] call zen_custom_modules_fnc_register;
-
-
-
 
 
 

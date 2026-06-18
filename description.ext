@@ -65,6 +65,7 @@ class CfgFunctions
 
     #include "grad-sandstorm\cfgFunctions.hpp"
     #include "grad-rotorWash\cfgFunctions.hpp"
+    #include "grad-survivableCrash\cfgFunctions.hpp"
 };
 
 
