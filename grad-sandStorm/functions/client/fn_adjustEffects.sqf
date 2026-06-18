@@ -18,11 +18,15 @@ private _shakepower = 0.5 + random 0.5;
 private _shakeduration = _duration;
 private _shakefreq = 3 + random 1;
 
-private _apertureInVehicle = 15;
-private _apertureInOpenVehicle = 20;
-private _apertureInBuilding = 20;
-private _apertureOutsideGoggles = 15;
-private _apertureOutsideNoGoggles = 20;
+// -1 = auto-exposure. Forcing a fixed aperture clamps the eye at a daylight
+// brightness and disables NVG gain / ambient adaptation, which at night crushes
+// everything outside an active light source (gun light, flashlight) to black.
+// Auto lets both NVG users and naked-eye players adapt to the dark storm.
+private _apertureInVehicle = -1;
+private _apertureInOpenVehicle = -1;
+private _apertureInBuilding = -1;
+private _apertureOutsideGoggles = -1;
+private _apertureOutsideNoGoggles = -1;
 
 
 
@@ -48,14 +52,14 @@ if (_vehicleState > 1) then {
             };
         };
         0.1 fadeMusic 0.35;
-        _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
+        _ppGrain ppEffectAdjust [0.16, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
         setAperture _apertureInVehicle;
     } else {
         // Open vehicle - slight attenuation, reduce camshake, normal film grain
         addCamShake [(_shakepower/2), _shakeduration, _shakefreq];
         0.1 fadeMusic 0.85;
-        _ppGrain ppEffectAdjust [0.08, 1.25, -0.01, 0.75, 1, 0];
+        _ppGrain ppEffectAdjust [0.16, 1.25, -0.01, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
         setAperture _apertureInOpenVehicle;
     };
@@ -71,7 +75,7 @@ if (_inBuilding) then {
     // {if (typeOf _x == "#particlesource") then {deleteVehicle _x}} forEach (player nearObjects 10);
     // widen particle radius so they dont interfere with house
     enableCamShake false;
-    _ppGrain ppEffectAdjust [0.08, 1.25, 1.0, 0.75, 1, 0];
+    _ppGrain ppEffectAdjust [0.16, 1.25, 1.0, 0.75, 1, 0];
     _ppGrain ppEffectCommit 1;
 
     0.2 fadeMusic 0.50;
@@ -102,7 +106,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
 
     // Player wearing eyewear adjust film grain
     if (goggles player != "") then {
-        _ppGrain ppEffectAdjust [0.08, 1.25, 1.0, 0.75, 1, 0];
+        _ppGrain ppEffectAdjust [0.16, 1.25, 1.0, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
 
         /*
@@ -112,7 +116,7 @@ if (_vehicleState == 1 && !_inBuilding) then {
         */
         setAperture _apertureOutsideGoggles;
     } else {
-        _ppGrain ppEffectAdjust [0.08, 1.25, 2.05, 0.75, 1, 0];
+        _ppGrain ppEffectAdjust [0.16, 1.25, 2.05, 0.75, 1, 0];
         _ppGrain ppEffectCommit 1;
 
         /*

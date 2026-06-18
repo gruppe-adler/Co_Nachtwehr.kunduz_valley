@@ -31,6 +31,7 @@ class GRAD_sandstorm {
           class removePostProcessing;
           class revealZeusMarker;
 
+          class setEmitterBrightness;
           class setEmitterLOD;
   };
 

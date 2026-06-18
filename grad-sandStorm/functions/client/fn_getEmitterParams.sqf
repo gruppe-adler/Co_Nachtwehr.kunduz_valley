@@ -1,4 +1,7 @@
-params ["_emitter", "_type"];
+// _brightness scales the RGB of the particle color over its whole lifetime.
+//  > 1 brightens (wall lit by moonlight when seen from outside)
+//  < 1 darkens   (wall seen from inside, where you are in shadow/dust)
+params ["_emitter", "_type", ["_brightness", 1]];
 
 private _params = [];
 
@@ -189,10 +192,26 @@ switch (_type) do {
 				];
 	};
 	
-	default { 
+	default {
 		hint "error: no emitter subtype defined";
 		diag_log format ["error: no emitter subtype defined"];
-	}; 
+	};
+};
+
+// scale particle colour brightness (RGB only, alpha untouched), clamped to [0,1].
+// setParticleParams layout: ...[10]=rubbing, [11]=size[], [12]=color[], [13]=animSpeed[]...
+if (_brightness != 1 && {count _params > 12}) then {
+	private _colors = _params select 12;
+	_colors = _colors apply {
+		_x params ["_r", "_g", "_b", "_a"];
+		[
+			(_r * _brightness) min 1 max 0,
+			(_g * _brightness) min 1 max 0,
+			(_b * _brightness) min 1 max 0,
+			_a
+		]
+	};
+	_params set [12, _colors];
 };
 
 _params

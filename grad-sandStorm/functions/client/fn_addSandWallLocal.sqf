@@ -2,6 +2,10 @@ params ["_trigger", "_triggerSound", "_helperObject", "_sandstormIdentifier"];
 
 private _updateRate = 1;
 
+// wall brightness seen from outside (lit by moonlight) vs from inside (in shadow/dust)
+GRAD_sandstorm_wallBrightnessOutside = 2.2;
+GRAD_sandstorm_wallBrightnessInside = 0.5;
+
 if (GRAD_SANDSTORM_DEBUG) then {
     diag_log "add local sandwall";
 };
@@ -26,6 +30,9 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 };
 
 [_trigger, ((triggerArea _trigger) select 0) - 50, 50, _helperObject, _sandstormIdentifier] call GRAD_sandstorm_fnc_createParticleBorder;
+
+// player starts outside the wall, so light it for moonlight viewing
+[_sandstormIdentifier, GRAD_sandstorm_wallBrightnessOutside] call GRAD_sandstorm_fnc_setEmitterBrightness;
 
 
 [{
@@ -123,10 +130,13 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             player setVariable ["isInsideSandstorm", true];
             player setVariable ["isInsideSandstormPP", _pp];
-            player setVariable ["isInsideSandstormLeaves", _leaves];  
+            player setVariable ["isInsideSandstormLeaves", _leaves];
 
             player setVariable ["tf_receivingDistanceMultiplicator", 4];
             player setVariable ["tf_sendingDistanceMultiplicator", 0.25];
+
+            // now inside: darken the wall (player is in shadow within the dust)
+            [_sandstormIdentifier, GRAD_sandstorm_wallBrightnessInside] call GRAD_sandstorm_fnc_setEmitterBrightness;
         };
 
         [_updateRate, true] call GRAD_sandstorm_fnc_adjustFog;
@@ -150,7 +160,10 @@ if (!GRAD_SANDSTORM_DEBUG) then {
 
             {
                 deleteVehicle _x;
-            } forEach _leaves; 
+            } forEach _leaves;
+
+            // back outside: brighten the wall again for moonlight viewing
+            [_sandstormIdentifier, GRAD_sandstorm_wallBrightnessOutside] call GRAD_sandstorm_fnc_setEmitterBrightness;
         };
     };
     

@@ -26,7 +26,7 @@ loadoutFactionInd = "";
 loadoutFactionCiv = "";
 
 
-//#define NIGHTVISION
-//#define GUNLIGHTS
-//#define LASERS
+#define NIGHTVISION
+#define GUNLIGHTS
+#define LASERS
 //#define SUPPRESSORS
