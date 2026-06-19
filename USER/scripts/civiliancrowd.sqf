@@ -1,0 +1,13 @@
+"Acts_Arrival_Response"
+"Acts_Briefing_Intro2_Major_1"
+"Acts_Briefing_Intro3_Physicist_1"
+"Acts_Grieving"
+"Acts_JetsMarshallingClear_loop"
+"Acts_JetsMarshallingStop_loop"
+"Acts_JetsMarshallingStraight_loop"
+"Acts_JetsShooterNavigate_loop"
+"Acts_JetsShooterNavigate_stop"
+"Acts_JetsShooterNavigate_stop_m"
+"Acts_Kore_IdleNoWeapon_loop"
+"Acts_Watching_Fire_Loop"
+

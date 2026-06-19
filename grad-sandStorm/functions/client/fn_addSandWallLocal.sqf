@@ -10,7 +10,7 @@ GRAD_sandstorm_wallBrightnessInside = 0.5;
 // The storm trigger is the full radius, but the visible particle wall starts ~155m
 // inside it, so without this inset the PP kicks in before you reach the dust.
 // Larger value = effects start later (deeper into the storm).
-GRAD_sandstorm_effectInset = 145;
+GRAD_sandstorm_effectInset = 155;
 
 if (GRAD_SANDSTORM_DEBUG) then {
     diag_log "add local sandwall";
@@ -72,6 +72,23 @@ missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIden
             player setVariable ["tf_sendingDistanceMultiplicator", 1];
 
             { deleteVehicle _x } forEach _leaves;
+        };
+
+        // remove the interior dust volume and outer ring if they exist
+        private _interior = player getVariable ["GRAD_sandstorm_interiorEmitter", objNull];
+        if (!isNull _interior) then {
+            deleteVehicle _interior;
+            player setVariable ["GRAD_sandstorm_interiorEmitter", objNull];
+        };
+        private _ring = player getVariable ["GRAD_sandstorm_ringEmitter", objNull];
+        if (!isNull _ring) then {
+            deleteVehicle _ring;
+            player setVariable ["GRAD_sandstorm_ringEmitter", objNull];
+        };
+        private _overhead = player getVariable ["GRAD_sandstorm_overheadEmitter", objNull];
+        if (!isNull _overhead) then {
+            deleteVehicle _overhead;
+            player setVariable ["GRAD_sandstorm_overheadEmitter", objNull];
         };
 
         // restore world fog and music
@@ -152,16 +169,40 @@ missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIden
 
             // now inside: darken the wall (player is in shadow within the dust)
             [_sandstormIdentifier, GRAD_sandstorm_wallBrightnessInside] call GRAD_sandstorm_fnc_setEmitterBrightness;
+
+            // create the interior dust volume - a persistent player-attached emitter
+            // that surrounds the camera. This is the obscuration when standing inside
+            // the storm (replaces setFog, which NVG ignores).
+            private _interior = call GRAD_sandstorm_fnc_createParticleClose;
+            player setVariable ["GRAD_sandstorm_interiorEmitter", _interior];
+
+            // create the wind-independent outer ring that blocks distant view
+            private _ring = call GRAD_sandstorm_fnc_createParticleRing;
+            player setVariable ["GRAD_sandstorm_ringEmitter", _ring];
+
+            // create the overhead cap so the sky directly above is blocked too
+            private _overhead = call GRAD_sandstorm_fnc_createParticleOverhead;
+            player setVariable ["GRAD_sandstorm_overheadEmitter", _overhead];
         };
 
-        [_updateRate, true] call GRAD_sandstorm_fnc_adjustFog;
+        // applies grain / camshake / aperture (building/vehicle aware)
         private _inBuilding = [_updateRate] call GRAD_sandstorm_fnc_adjustEffects;
-        if (!_inBuilding) then {
-            [] call GRAD_sandstorm_fnc_createParticleClose;
+
+        // pause the dust while sheltered in a building, resume outside
+        private _interior = player getVariable ["GRAD_sandstorm_interiorEmitter", objNull];
+        if (!isNull _interior) then {
+            _interior enableSimulation (!_inBuilding);
+        };
+        private _ring = player getVariable ["GRAD_sandstorm_ringEmitter", objNull];
+        if (!isNull _ring) then {
+            _ring enableSimulation (!_inBuilding);
+        };
+        private _overhead = player getVariable ["GRAD_sandstorm_overheadEmitter", objNull];
+        if (!isNull _overhead) then {
+            _overhead enableSimulation (!_inBuilding);
         };
 
     } else {
-        [_updateRate, false] call GRAD_sandstorm_fnc_adjustFog;
         setAperture -1;
 
         if (player getVariable ["isInsideSandstorm", false]) then {
@@ -176,6 +217,23 @@ missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIden
             {
                 deleteVehicle _x;
             } forEach _leaves;
+
+            // remove the interior dust volume and the outer ring
+            private _interior = player getVariable ["GRAD_sandstorm_interiorEmitter", objNull];
+            if (!isNull _interior) then {
+                deleteVehicle _interior;
+                player setVariable ["GRAD_sandstorm_interiorEmitter", objNull];
+            };
+            private _ring = player getVariable ["GRAD_sandstorm_ringEmitter", objNull];
+            if (!isNull _ring) then {
+                deleteVehicle _ring;
+                player setVariable ["GRAD_sandstorm_ringEmitter", objNull];
+            };
+            private _overhead = player getVariable ["GRAD_sandstorm_overheadEmitter", objNull];
+            if (!isNull _overhead) then {
+                deleteVehicle _overhead;
+                player setVariable ["GRAD_sandstorm_overheadEmitter", objNull];
+            };
 
             // back outside: brighten the wall again for moonlight viewing
             [_sandstormIdentifier, GRAD_sandstorm_wallBrightnessOutside] call GRAD_sandstorm_fnc_setEmitterBrightness;

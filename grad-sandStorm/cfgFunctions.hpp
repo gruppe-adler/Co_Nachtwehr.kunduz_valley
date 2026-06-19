@@ -20,6 +20,8 @@ class GRAD_sandstorm {
           class createEmitter;
           class createParticleBorder;
           class createParticleClose;
+          class createParticleOverhead;
+          class createParticleRing;
 
           class getEmitterArray;
           class getEmitterParams;

@@ -104,11 +104,6 @@ if (GRAD_SANDSTORM_DEBUG) then {
         };
     } forEach vehicles;
 
-    
-    private _fog =  [(0.3 + random 0.1), 0.003, 0];
-    missionNamespace setVariable ["GRAD_sandstorm_fogValue", _fog, true];
-
-
     _newPos params ["_xPos", "_yPos"];
     
     if (_xPos < -_size || _xPos > (worldSize + _size) || _yPos < -_size || _yPos > (worldSize+_size)) then {

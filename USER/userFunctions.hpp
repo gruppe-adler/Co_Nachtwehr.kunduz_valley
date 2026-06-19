@@ -1,10 +1,11 @@
-/*
+﻿/*
 *   Hier können eigene Funktionen eingebunden werden.
 *   Ist in CfgFunctions included.
 */
 
 #include "healingMechanism\cfgFunctions.hpp"
 #include "zeusModules\cfgFunctions.hpp"
+#include "civilianProtester\cfgFunctions.hpp"
 
 class grad_missionControl {
 
