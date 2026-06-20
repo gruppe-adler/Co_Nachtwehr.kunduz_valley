@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=2062;
+		nextID=2067;
 	};
 	class MarkerIDProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5130.1831,35.254467,6914.2456};
-		dir[]={-0.14054422,-0.57777715,0.80400306};
-		up[]={-0.099490047,0.81619453,0.56914687};
-		aside[]={0.98506296,0,0.17219451};
+		pos[]={6060.3862,85.588928,6697.8486};
+		dir[]={0.6211105,-0.40851671,-0.66885495};
+		up[]={0.27798924,0.91274703,-0.29935798};
+		aside[]={-0.73278624,-4.1598105e-07,-0.68047833};
 	};
 };
 binarizationWanted=0;
@@ -4320,7 +4320,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=279;
+		items=282;
 		class Item0
 		{
 			dataType="Layer";
@@ -11976,7 +11976,7 @@ class Mission
 			type="mil_arrow";
 			colorName="ColorRed";
 			alpha=0;
-			angle=112.91493;
+			angle=112.91492;
 			id=1870;
 			atlOffset=-9.4175339e-05;
 		};
@@ -14554,6 +14554,9 @@ class Mission
 			{
 				name="trg_bridge_diverge";
 				text="trigger bridge diverge";
+				onActivation="[] remoteExec [""FA_Zeus_fnc_transmission_07_bruecke"", 2];";
+				activationBy="WEST";
+				isServerOnly=1;
 			};
 			id=1969;
 			type="EmptyDetectorAreaR250";
@@ -14626,20 +14629,6 @@ class Mission
 		};
 		class Item257
 		{
-			dataType="Trigger";
-			position[]={8314.8555,11.218887,8499.5156};
-			class Attributes
-			{
-				text=" Sandstorm";
-				sizeA=250;
-				sizeB=250;
-			};
-			id=1981;
-			type="EmptyDetectorAreaR250";
-			atlOffset=1.4868813;
-		};
-		class Item258
-		{
 			dataType="Comment";
 			class PositionInfo
 			{
@@ -14649,7 +14638,7 @@ class Mission
 			id=1990;
 			atlOffset=1.0155921;
 		};
-		class Item259
+		class Item258
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -14660,7 +14649,7 @@ class Mission
 			id=1991;
 			atlOffset=0.00012254715;
 		};
-		class Item260
+		class Item259
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -14671,7 +14660,7 @@ class Mission
 			id=1992;
 			atlOffset=0.0004863739;
 		};
-		class Item261
+		class Item260
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -14681,7 +14670,7 @@ class Mission
 			title=" task: ambush";
 			id=1993;
 		};
-		class Item262
+		class Item261
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -14692,7 +14681,7 @@ class Mission
 			id=1994;
 			atlOffset=-0.00011348724;
 		};
-		class Item263
+		class Item262
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -14703,7 +14692,7 @@ class Mission
 			id=1995;
 			atlOffset=-5.3405762e-05;
 		};
-		class Item264
+		class Item263
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -14714,7 +14703,7 @@ class Mission
 			id=1996;
 			atlOffset=9.4413757e-05;
 		};
-		class Item265
+		class Item264
 		{
 			dataType="Object";
 			class PositionInfo
@@ -14730,7 +14719,7 @@ class Mission
 			id=1997;
 			type="IEDUrbanBig_F";
 		};
-		class Item266
+		class Item265
 		{
 			dataType="Group";
 			side="East";
@@ -14848,7 +14837,7 @@ class Mission
 			};
 			id=1998;
 		};
-		class Item267
+		class Item266
 		{
 			dataType="Object";
 			class PositionInfo
@@ -14866,7 +14855,7 @@ class Mission
 			id=1999;
 			type="UK3CB_MEE_O_Hilux_Dshkm";
 		};
-		class Item268
+		class Item267
 		{
 			dataType="Trigger";
 			position[]={6471.4141,4.7871361,6463.9038};
@@ -14882,7 +14871,7 @@ class Mission
 			type="EmptyDetectorAreaR50";
 			atlOffset=9.032999;
 		};
-		class Item269
+		class Item268
 		{
 			dataType="Group";
 			side="East";
@@ -14978,7 +14967,7 @@ class Mission
 			id=2007;
 			atlOffset=-0.00012969971;
 		};
-		class Item270
+		class Item269
 		{
 			dataType="Object";
 			class PositionInfo
@@ -14999,7 +14988,7 @@ class Mission
 			type="UK3CB_TKA_O_KA137_PKM";
 			atlOffset=-0.00012969971;
 		};
-		class Item271
+		class Item270
 		{
 			dataType="Group";
 			side="East";
@@ -15190,7 +15179,7 @@ class Mission
 			};
 			id=2018;
 		};
-		class Item272
+		class Item271
 		{
 			dataType="Group";
 			side="East";
@@ -15293,7 +15282,7 @@ class Mission
 			};
 			id=2028;
 		};
-		class Item273
+		class Item272
 		{
 			dataType="Object";
 			class PositionInfo
@@ -15311,7 +15300,7 @@ class Mission
 			id=2029;
 			type="UK3CB_MEE_O_Hilux_M2";
 		};
-		class Item274
+		class Item273
 		{
 			dataType="Group";
 			side="East";
@@ -15423,7 +15412,7 @@ class Mission
 			};
 			id=2039;
 		};
-		class Item275
+		class Item274
 		{
 			dataType="Trigger";
 			position[]={8203.6445,14.16,6734.2852};
@@ -15440,7 +15429,7 @@ class Mission
 			id=2046;
 			type="EmptyDetectorAreaR50";
 		};
-		class Item276
+		class Item275
 		{
 			dataType="Group";
 			side="East";
@@ -15540,7 +15529,7 @@ class Mission
 			};
 			id=2047;
 		};
-		class Item277
+		class Item276
 		{
 			dataType="Group";
 			side="East";
@@ -15664,16 +15653,78 @@ class Mission
 			};
 			id=2053;
 		};
-		class Item278
+		class Item277
 		{
 			dataType="Trigger";
-			position[]={5225.207,7.3266778,7004.1152};
+			position[]={5828.0679,9.7213888,7059.4961};
 			class Attributes
 			{
 				name="trg_bridge_activity";
 				text=" trigger bridge activity";
+				onActivation="[""USER\scripts\blowUpBridge.sqf""] remoteExec [""BIS_fnc_execVM"",2];";
+				activationBy="WEST";
+				isServerOnly=1;
 			};
 			id=2061;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.0539999;
+		};
+		class Item278
+		{
+			dataType="Trigger";
+			position[]={5251.998,10.316463,7008.8252};
+			class Attributes
+			{
+				name="trg_nora";
+				onActivation="[] remoteExec [""FA_Zeus_fnc_transmission_05_nora"", 2];";
+				activationBy="WEST";
+				isServerOnly=1;
+			};
+			id=2062;
+			type="EmptyDetectorAreaR250";
+			atlOffset=2.2790003;
+		};
+		class Item279
+		{
+			dataType="Trigger";
+			position[]={4113.418,9.6614075,8502.5635};
+			class Attributes
+			{
+				name="trg_emil";
+				onActivation="[] remoteExec [""FA_Zeus_fnc_transmission_04_emil"", 2];";
+				activationBy="WEST";
+				isServerOnly=1;
+			};
+			id=2063;
+			type="EmptyDetectorAreaR250";
+			atlOffset=9.5367432e-07;
+		};
+		class Item280
+		{
+			dataType="Trigger";
+			position[]={8466.082,14.279839,6642.603};
+			class Attributes
+			{
+				name="trg_ida";
+				onActivation="[] remoteExec [""FA_Zeus_fnc_transmission_10_ida"", 2];";
+				activationBy="WEST";
+				isServerOnly=1;
+			};
+			id=2065;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item281
+		{
+			dataType="Trigger";
+			position[]={8777.0332,20.921942,5719.1362};
+			class Attributes
+			{
+				name="trg_ida_1";
+				onActivation="[] remoteExec [""FA_Zeus_fnc_transmission_11_samuel"", 2];";
+				activationBy="WEST";
+				isServerOnly=1;
+			};
+			id=2066;
 			type="EmptyDetectorAreaR250";
 		};
 	};
