@@ -76,3 +76,28 @@
      [_position, 3000, 20, 180] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
 
   }] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Scenario Flow", "Blow up Bridge", {
+    params ["_position", "_object"];
+    [] spawn {
+        {
+            _x setDamage 1;
+            sleep (random 0.8);
+        } forEach [bridge_IED_1, bridge_IED_2, bridge];
+    };
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Scenario Flow", "Manual Trigger - Ambush 1", {
+    params ["_position", "_object"];
+    missionNamespace setVariable ["grad_startAmbush_1", true, true];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Scenario Flow", "Manual Trigger - Ambush 2", {
+    params ["_position", "_object"];
+    missionNamespace setVariable ["grad_startAmbush_2", true, true];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Scenario Flow", "Manual Trigger - Ambush 3", {
+    params ["_position", "_object"];
+    missionNamespace setVariable ["grad_startAmbush_3", true, true];
+}] call zen_custom_modules_fnc_register;
