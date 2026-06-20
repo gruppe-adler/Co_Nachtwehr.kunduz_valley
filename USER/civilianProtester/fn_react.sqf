@@ -62,7 +62,7 @@ switch (_outcome) do {
         if (_cowerAnim != "") then {
             _unit switchMove _cowerAnim;
         } else {
-            _unit playMoveNow "Acts_ShockedUnarmed_2_Loop";
+            _unit playMoveNow "Acts_CivilHiding_2";
         };
     };
 

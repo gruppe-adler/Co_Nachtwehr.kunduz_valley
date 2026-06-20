@@ -6,6 +6,7 @@
 #include "healingMechanism\cfgFunctions.hpp"
 #include "zeusModules\cfgFunctions.hpp"
 #include "civilianProtester\cfgFunctions.hpp"
+#include "convoyControl\cfgFunctions.hpp"
 
 class grad_missionControl {
 
