@@ -115,10 +115,22 @@ missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIden
 
     if ((vehicle player) inArea _triggerSound) then {
         if ((player getVariable ["sandStormSoundEH", -1]) == -1) then {
+                // Loop guard: the MusicStop handler fires for EVERY playMusic call,
+                // including the one inside the handler itself. Without this flag the
+                // handler re-triggers itself in a tight loop (hence "restarting sound
+                // effect" spamming). We only want to restart on a genuine track end.
+                player setVariable ["GRAD_sandstorm_musicLooping", true];
                 0 fadeMusic 0;
                 playMusic "desertLoop";
                 10 fadeMusic 0.5;
                 private _soundeffect = addMusicEventHandler ["MusicStop", {
+                        // ignore the MusicStop our own restart raises
+                        if (player getVariable ["GRAD_sandstorm_restarting", false]) exitWith {
+                            player setVariable ["GRAD_sandstorm_restarting", false];
+                        };
+                        if (!(player getVariable ["GRAD_sandstorm_musicLooping", false])) exitWith {};
+
+                        player setVariable ["GRAD_sandstorm_restarting", true];
                         playMusic "desertLoop";
                         if (GRAD_SANDSTORM_DEBUG) then {
                             systemChat "restarting sound effect";
@@ -136,6 +148,8 @@ missionNamespace setVariable [format ["GRAD_sandstorm_radius_%1", _sandstormIden
                 params ["_soundeffect"];
 
                 if (!(player getVariable ["isInsideSandstorm", false])) then {
+                    // disarm the loop before stopping so MusicStop doesn't restart it
+                    player setVariable ["GRAD_sandstorm_musicLooping", false];
                     playMusic "";
 
                     removeMusicEventHandler ["MusicStop", _soundeffect];
