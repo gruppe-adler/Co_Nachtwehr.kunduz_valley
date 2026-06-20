@@ -22,9 +22,25 @@ diag_log "[convoy] fn_start running on server";
 #define CONVOY_CRUISE_SEPARATION 35
 #define CONVOY_CRUISE_MAXSPEED 40
 
-// Radio confirmation: random start callout to every player.
-private _sound = selectRandom ["GRAD_convoy_start_01", "GRAD_convoy_start_02", "GRAD_convoy_start_03", "GRAD_convoy_start_04"];
-_sound remoteExec ["playSound", 0];
+
+[
+    {
+        {
+            _x params ["_audioID"];
+            
+            private _duration = getNumber (missionConfigFile >> "CfgSounds" >> _audioID >> "duration");
+            private _avatar = getText (missionConfigFile >> "CfgSounds" >> _audioID >> "avatar");
+            private _text = getArray (missionConfigFile >> "CfgSounds" >> _audioID >> "customsubtitle") select 1;
+            private _object = getText (missionConfigFile >> "CfgSounds" >> _audioID >> "object");
+
+            [[_object, _text, _audioID, _duration, _avatar], "user\rscMessage\createMessageRsc.sqf"] remoteExec ["bis_fnc_execVM"];
+            sleep (_duration + 1);
+        } forEach [
+            selectRandom ["GRAD_convoy_start_01", "GRAD_convoy_start_02", "GRAD_convoy_start_03", "GRAD_convoy_start_04"]
+        ];      
+    }
+, [], 3] call CBA_fnc_waitAndExecute;
+
 
 private _leader = (call GRAD_convoyControl_fnc_getConvoyVehicles) param [0, objNull];
 

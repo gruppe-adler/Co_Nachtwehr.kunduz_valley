@@ -35,6 +35,21 @@ if (!isNull _leader) then {
 // Reset on start (see GRAD_convoyControl_fnc_start).
 Convoy_01 setVariable ["convSeparation", CONVOY_STOP_SEPARATION, true];
 
-// Radio confirmation: random stop callout to every player.
-private _sound = selectRandom ["GRAD_convoy_stop_01", "GRAD_convoy_stop_02", "GRAD_convoy_stop_03", "GRAD_convoy_stop_04"];
-_sound remoteExec ["playSound", 0];
+
+[
+    {
+        {
+            _x params ["_audioID"];
+            
+            private _duration = getNumber (missionConfigFile >> "CfgSounds" >> _audioID >> "duration");
+            private _avatar = getText (missionConfigFile >> "CfgSounds" >> _audioID >> "avatar");
+            private _text = getArray (missionConfigFile >> "CfgSounds" >> _audioID >> "customsubtitle") select 1;
+            private _object = getText (missionConfigFile >> "CfgSounds" >> _audioID >> "object");
+
+            [[_object, _text, _audioID, _duration, _avatar], "user\rscMessage\createMessageRsc.sqf"] remoteExec ["bis_fnc_execVM"];
+            sleep (_duration + 1);
+        } forEach [
+            selectRandom ["GRAD_convoy_stop_01", "GRAD_convoy_stop_02", "GRAD_convoy_stop_03", "GRAD_convoy_stop_04"]
+        ];      
+    }
+, [], 3] call CBA_fnc_waitAndExecute;

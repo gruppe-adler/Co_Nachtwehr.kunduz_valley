@@ -9,5 +9,5 @@
     [[_object, _text, _audioID, _duration, _avatar], "user\rscMessage\createMessageRsc.sqf"] remoteExec ["bis_fnc_execVM"];
     sleep (_duration + 1);
 } forEach [
-    "mission_103_warlord"
+    "medevac"
 ];

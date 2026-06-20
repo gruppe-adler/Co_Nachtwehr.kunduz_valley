@@ -39,6 +39,66 @@
     [] remoteExec ["FA_Zeus_fnc_transmission_01_briefing", 2];
 }] call zen_custom_modules_fnc_register;
 
+["CO NACHTWEHR - Transmissions", "02 CROWD", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_02_crowd", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "03 POLKA", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_03_polka", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "04 EMIL", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_04_emil", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "05 NORA", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_05_nora", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "06 SPRENGFALLE", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_06_sprengfalle", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "07 BRUECKE", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_07_bruecke", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "08 SANDSTURM", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_08_sandsturm", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "09 SANDSTURM AUFKLARUNG", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_09_sandsturm", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "10 IDA", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_10_ida", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "11 SAMUEL", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_11_samuel", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "12 RTB", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_12_RTB", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "MEDEVAC", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_medevac", 2];
+}] call zen_custom_modules_fnc_register;
+
 
 
  ["CO NACHTWEHR - Sandstorm", "Clickpos going to EAST",

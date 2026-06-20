@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=338;
+		nextID=346;
 	};
 	class Camera
 	{
-		pos[]={6285.0273,104.50893,6454.4551};
-		dir[]={0.81679529,-0.57272923,0.069474898};
-		up[]={0.57066858,0.81974453,0.048539877};
-		aside[]={0.084751874,3.7252903e-09,-0.99640203};
+		pos[]={5130.1831,35.254467,6914.2456};
+		dir[]={-0.14054443,-0.57777888,0.80400544};
+		up[]={-0.099490874,0.81619042,0.56915313};
+		aside[]={0.985066,5.2343239e-08,0.1721949};
 	};
 };
 binarizationWanted=0;
@@ -6551,13 +6551,13 @@ class Mission
 				angles[]={6.1914506,4.4793,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="multi_tractor_object";
 			};
 			id=1608;
 			type="UK3CB_MEC_C_Tractor";
+			atlOffset=0.25904179;
 		};
 		class Item60
 		{
@@ -12024,7 +12024,7 @@ class Mission
 			type="mil_arrow";
 			colorName="ColorRed";
 			alpha=0;
-			angle=108.43395;
+			angle=108.43394;
 			id=1874;
 			atlOffset=-0.00011253357;
 		};
@@ -12138,7 +12138,7 @@ class Mission
 					};
 					id=1883;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=-0.0001115799;
+					atlOffset=9.5367432e-06;
 				};
 				class Item1
 				{
@@ -12149,13 +12149,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=1884;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=-0.0001115799;
+					atlOffset=2.2199459;
 				};
 			};
 			class Attributes
@@ -12235,6 +12235,7 @@ class Mission
 					};
 					id=1886;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=0.0017871857;
 				};
 				class Item1
 				{
@@ -12245,12 +12246,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=1887;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=2.221427;
 				};
 			};
 			class Attributes
@@ -12328,7 +12330,7 @@ class Mission
 					};
 					id=1890;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=9.5367432e-07;
+					atlOffset=0.0047721863;
 				};
 				class Item1
 				{
@@ -12339,13 +12341,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=1891;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=9.5367432e-07;
+					atlOffset=2.2239246;
 				};
 			};
 			class Attributes
@@ -12425,6 +12427,7 @@ class Mission
 					};
 					id=1895;
 					type="UK3CB_MEE_O_CREW";
+					atlOffset=-1.9073486e-06;
 				};
 			};
 			class Attributes
@@ -12491,7 +12494,7 @@ class Mission
 					};
 					id=1897;
 					type="UK3CB_MEE_O_CREW";
-					atlOffset=-9.5367432e-07;
+					atlOffset=-1.9073486e-06;
 				};
 			};
 			class Attributes
@@ -14753,6 +14756,7 @@ class Mission
 					};
 					id=2000;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=4.7683716e-07;
 				};
 				class Item1
 				{
@@ -14763,13 +14767,14 @@ class Mission
 						angles[]={0,0.051173054,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 						name="ambush_hilux_1G";
 					};
 					id=2001;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=2.0169108;
 				};
 				class Item2
 				{
@@ -14905,7 +14910,7 @@ class Mission
 					};
 					id=2009;
 					type="O_UAV_AI";
-					atlOffset=-0.00012969971;
+					atlOffset=8.5830688e-06;
 				};
 				class Item1
 				{
@@ -14916,14 +14921,13 @@ class Mission
 						angles[]={0,4.0233922,0};
 					};
 					side="East";
-					flags=4;
 					class Attributes
 					{
 						name="ambush_drone_1G";
 					};
 					id=2010;
 					type="O_UAV_AI";
-					atlOffset=-0.00012969971;
+					atlOffset=0.96019411;
 				};
 				class Item2
 				{
@@ -15223,13 +15227,14 @@ class Mission
 						angles[]={0,4.1961732,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 						name="ambush_hilux_2G";
 					};
 					id=2031;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=2.1581612;
 				};
 				class Item2
 				{
