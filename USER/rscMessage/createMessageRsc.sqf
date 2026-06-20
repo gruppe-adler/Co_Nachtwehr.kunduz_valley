@@ -60,13 +60,34 @@ private _textWidth = ctrlTextWidth _ctrlMessage;
 _ctrlMessage ctrlSetPosition [safeZoneW, safeZoneH - BOX_H/1.7, _textWidth, BOX_H];
 _ctrlMessage ctrlCommit 0;
 
+// --- Marquee scroll timing -------------------------------------------------
+// Scroll speed is capped so short messages don't whip past too fast to read,
+// while long messages scroll over the full display duration.
+//
+// Commit time is derived from how far the text actually travels:
+//   travel / MAX_SCROLL_SPEED
+// then clamped into [MIN_SCROLL_TIME, _duration]:
+//   - long text  -> travel/speed exceeds _duration -> clamped to _duration
+//   - short text -> travel/speed is small          -> floored to MIN_SCROLL_TIME
+//
+// MAX_SCROLL_SPEED is in screen-widths per second (safeZoneW units), so it's
+// resolution independent. Tune these two to taste.
+#define MAX_SCROLL_SPEED (safeZoneW / 6)   // ~6s to cross one full screen width
+#define MIN_SCROLL_TIME  4                 // shortest a message ever scrolls for
+
+private _startX = safeZoneW;
+private _endX = 0;
 if (safeZoneW < _textWidth) then {
-	_ctrlMessage ctrlSetPosition [safeZoneW-_textWidth, safeZoneH - BOX_H/1.5, _textWidth, BOX_H];
-	_ctrlMessage ctrlCommit _duration/2;
+	_endX = safeZoneW - _textWidth;   // long: scroll the whole string across
 } else {
-	_ctrlMessage ctrlSetPosition [BOX_W*1.1, safeZoneH - BOX_H/1.5, _textWidth, BOX_H];
-	_ctrlMessage ctrlCommit _duration/2;
+	_endX = BOX_W * 1.1;              // short: slide in and park near the left
 };
+
+private _travel = abs (_startX - _endX);
+private _scrollTime = (_travel / MAX_SCROLL_SPEED) max MIN_SCROLL_TIME min _duration;
+
+_ctrlMessage ctrlSetPosition [_endX, safeZoneH - BOX_H/1.5, _textWidth, BOX_H];
+_ctrlMessage ctrlCommit _scrollTime;
 
 private _ctrlImage = _display ctrlCreate ["RscPicture", -1, _ctrlGroup];
 _ctrlImage ctrlSetPosition [0, safeZoneH - BOX_H, BOX_W, BOX_H];

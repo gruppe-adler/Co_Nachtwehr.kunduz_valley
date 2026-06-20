@@ -34,15 +34,11 @@
 
 
 
-["CO NACHTWEHR - Transmissions", "00 SEND IT", {
+["CO NACHTWEHR - Transmissions", "01 BRIEFING", {
     params ["_position", "_object"];
-    [] remoteExec ["FA_fnc_transmission_00_copy", 2];
+    [] remoteExec ["FA_Zeus_fnc_transmission_01_briefing", 2];
 }] call zen_custom_modules_fnc_register;
 
-["CO NACHTWEHR - Transmissions", "00 COPY THAT, STAND BY", {
-    params ["_position", "_object"];
-    [] remoteExec ["FA_fnc_transmission_00_standby", 2];
-}] call zen_custom_modules_fnc_register;
 
 
  ["CO NACHTWEHR - Sandstorm", "Clickpos going to EAST",
@@ -79,12 +75,8 @@
 
 ["CO NACHTWEHR - Scenario Flow", "Blow up Bridge", {
     params ["_position", "_object"];
-    [] spawn {
-        {
-            _x setDamage 1;
-            sleep (random 0.8);
-        } forEach [bridge_IED_1, bridge_IED_2, bridge];
-    };
+    
+     ["USER\scripts\blowUpBridge.sqf"] remoteExec ["BIS_fnc_execVM",0,true];
 }] call zen_custom_modules_fnc_register;
 
 ["CO NACHTWEHR - Scenario Flow", "Manual Trigger - Ambush 1", {

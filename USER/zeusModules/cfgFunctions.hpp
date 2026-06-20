@@ -6,7 +6,6 @@ class FA_Zeus {
 			preInit = 1;
 		};
 
-		class transmission_00_copy;
-		class transmission_00_standby;
+		class transmission_01_briefing;
 	};
 };
