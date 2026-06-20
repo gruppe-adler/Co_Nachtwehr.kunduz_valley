@@ -121,7 +121,7 @@ class mission_01_briefing
     customsubtitle[] = {
         0, "Lima, Kameel, Zulu — hier OPZ, KOMMEN. Auftrag: Begleitschutz UN-Versorgungs- und Bauzug entlang der Flussroute. Marschweg über die Kontrollpunkte Polka, Emil, Nora, Ida, Samuel. Endziel Samuel, abgeschlossen vor Sonnenaufgang. Eigene Luftaufklärung Heron steht über euch, erhalte durchgehend Feed. Feindlage: Aufständische werden den Zug mit allen Mitteln unterbinden wollen — rechnet mit Sprengfallen und Hinterhalten. Lima und Zulu koordinieren sich eigenständig untereinander — Luft und Boden im ständigen Funkkontakt, Feindmeldungen und Aufträge direkt absprechen, nicht alles über OPZ leiten. Einsatzregeln strikt beachten. OPZ ENDE."
     };
-    duration = 55;
+    duration = 52;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -134,7 +134,7 @@ class mission_02_crowd
     customsubtitle[] = {
         0, "Lima, Kameel, hier OPZ — Heron meldet Menschenansammlung auf der Straße am Kontrollpunkt vor euch, geschätzt dreißig bis vierzig Zivilpersonen, keine Bewaffnung erkennbar. Auftrag: Marschweg freimachen, Lage deeskalieren. Keine Waffenwirkung gegen Zivilpersonen — Einzelansprache. KOMMEN."
     };
-    duration = 0;
+    duration = 22;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -147,7 +147,7 @@ class mission_03_polka
     customsubtitle[] = {
         0, "Lima, hier OPZ  - Dronen Feed ist sauber, Marschweg frei. Kontrollpunkt Polka passieren. Marsch fortsetzen, nächster Abschnitt. OPZ ENDE."
     };
-    duration = 0;
+    duration = 10;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -160,7 +160,7 @@ class mission_04_emil
     customsubtitle[] = {
         0, "Lima, hier OPZ — Heron bestätigt: Kontrollpunkt EMIL passiert. Konvoi geschlossen, Marschordnung gehalten. Feindlage unverändert. Auftrag bleibt bestehen: Bewegung fortsetzen Richtung NORA. OPZ ENDE."
     };
-    duration = 0;
+    duration = 17;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -173,7 +173,7 @@ class mission_05_nora
     customsubtitle[] = {
         0, "Lima, Kameel, hier OPZ — Heron bestätigt: Kontrollpunkt NORA erreicht und passiert. Hälfte des Marschweges liegt hinter euch — weiter so. Marsch nach IDA fortsetzen. OPZ ENDE."
     };
-    duration = 0;
+    duration = 15;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -186,7 +186,7 @@ class mission_06_sprengfalle
     customsubtitle[] = {
         0, "Lima, Kameel, hier OPZ — ACHTUNG, ACHTUNG! Heron erfasst verdächtige Wärmequelle am Fahrbahnrand, etwa zweihundert Meter in Marschrichtung. Verdacht Sprengfalle. Auftrag: Marsch STOPP, Tankfahrzeuge zurückhalten, Bereich abriegeln, Kampfmittel durch Lima beseitigen. Vollzug melden. ENDE."
     };
-    duration = 0;
+    duration = 22;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -199,7 +199,7 @@ class mission_07_bruecke
     customsubtitle[] = {
         0, "Lima, hier OPZ — Heron informiert: Brücke gesprengt, nicht mehr befahrbar. Schwere Fahrzeuge können den Fluss hier nicht queren. Neuer Auftrag: Umleitung über den südlichen Feldweg. Abschnitt nicht gesichert, erhöhtes Risiko. Zulu-1 vorausklären und Lima einweisen, Konvoi geschlossen nachführen. AUSFÜHREN."
     };
-    duration = 0;
+    duration = 23;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -212,7 +212,7 @@ class mission_08_sandsturm
     customsubtitle[] = {
         0, "An alle, hier OPZ — Wetterlage: schwerer Sandsturm zieht von Norden auf, Sicht geht gegen null. Zulu, Flugbetrieb sofort einstellen, zurück zur Basis, am Boden bleiben — Wiederaufnahme auf meinen Befehl. Kamel, Marsch STOPP. Lima, erhöhte Wachsamkeit — Feind könnte Lage ausnutzen. OPZ ENDE."
     };
-    duration = 0;
+    duration = 22;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -225,7 +225,7 @@ class mission_09_sandsturm
     customsubtitle[] = {
         0, "An alle, hier OPZ — Wetterlage klart auf, Feed wieder verfügbar, Flugbetrieb freigegeben. Zulu-1, erneut aufsteigen, Aufklärung für Kameel und Lima aufnehmen. Kameel, Marsch fortsetzen — wir sind im Verzug, Marschgeschwindigkeit erhöhen. OPZ ENDE."
     };
-    duration = 0;
+    duration = 20;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -238,7 +238,7 @@ class mission_10_ida
     customsubtitle[] = {
         0, "Lima, Kameel, hier OPZ — Heron zeigt: Kontrollpunkt IDA passiert. Letzter Abschnitt vor SAMUEL eingeleitet. Feindaktivität im Raum weiterhin möglich. Sicherung beibehalten, Konvoi geschlossen halten und ohne Halt durchschieben. OPZ ENDE."
     };
-    duration = 0;
+    duration = 19;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -251,7 +251,7 @@ class mission_11_samuel
     customsubtitle[] = {
         0, "An alle, hier OPZ — Zielraum Samuel erreicht, aber noch nicht sauber. Heron erfasst versprengte Feindkräfte im Zielraum, einzelne Schützen zwischen den Gebäuden, vereinzelter Widerstand. Auftrag: Zielraum freikämpfen, bevor abgesessen wird. Lima, einzeln vorgehen und niederkämpfen, Konvoi gedeckt halten. Zulu-1, erfasste Einzelziele bekämpfen — sauber wirken, eigene Kräfte und Zielobjekt am Boden. Lima und Zulu untereinander einweisen. AUSFÜHREN!"
     };
-    duration = 0;
+    duration = 32;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };
@@ -264,7 +264,7 @@ class mission_12_RTB
     customsubtitle[] = {
         0, "An alle Kräfte, hier OPZ — NOTLAGE! Basis wird durch starke Feindkräfte angegriffen. Mehrere Feindansätze aus verschiedenen Richtungen, eigene Sicherungskräfte gebunden. Feind versucht in den inneren Bereich einzudringen. Lima, Lageänderung: Auftrag schnellstmöglich Kräfte zur Unterstützung der Basis herauslösen. Zulu, unverzüglich zur Basis verlegen und Feindkräfte bekämpfen. Priorität ist die Verteidigung des Gefechtsstandes und der kritischen Infrastruktur. OPZ an alle: Dringende Unterstützung angefordert. AUSFÜHREN! KOMMEN."
     };
-    duration = 0;
+    duration = 38;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };

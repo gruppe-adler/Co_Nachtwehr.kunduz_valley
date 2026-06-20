@@ -12,10 +12,17 @@ if (!isServer) exitWith {
     remoteExecCall ["GRAD_convoyControl_fnc_stop", 2];
 };
 
-// Already stopped — nothing to do.
-if ((missionNamespace getVariable ["GRAD_convoy_state", "STOP"]) isEqualTo "STOP") exitWith {};
+// Only act from a settled START. Ignores re-triggers while already stopped or
+// while a previous start/stop is still in its PENDING cooldown.
+if !((missionNamespace getVariable ["GRAD_convoy_state", "STOP"]) isEqualTo "START") exitWith {};
 
-missionNamespace setVariable ["GRAD_convoy_state", "STOP", true];
+// Enter the cooldown. While PENDING neither ACE menu entry is shown (both
+// conditions test for the settled STOP/START states), so the command can't be
+// spammed during the radio chatter. The state settles to STOP below.
+missionNamespace setVariable ["GRAD_convoy_state", "PENDING", true];
+
+// Cooldown before the state settles to STOP (seconds).
+#define CONVOY_COOLDOWN 8
 
 // Tighter gap the convoy closes up to while stopped (metres).
 #define CONVOY_STOP_SEPARATION 8
@@ -47,9 +54,14 @@ Convoy_01 setVariable ["convSeparation", CONVOY_STOP_SEPARATION, true];
             private _object = getText (missionConfigFile >> "CfgSounds" >> _audioID >> "object");
 
             [[_object, _text, _audioID, _duration, _avatar], "user\rscMessage\createMessageRsc.sqf"] remoteExec ["bis_fnc_execVM"];
-            sleep (_duration + 1);
+
         } forEach [
             selectRandom ["GRAD_convoy_stop_01", "GRAD_convoy_stop_02", "GRAD_convoy_stop_03", "GRAD_convoy_stop_04"]
         ];      
     }
 , [], 3] call CBA_fnc_waitAndExecute;
+
+// Settle the state to STOP once the cooldown elapses, re-enabling the menu.
+[{
+    missionNamespace setVariable ["GRAD_convoy_state", "STOP", true];
+}, [], CONVOY_COOLDOWN] call CBA_fnc_waitAndExecute;

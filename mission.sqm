@@ -21,9 +21,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={5130.1831,35.254467,6914.2456};
-		dir[]={-0.14054443,-0.57777888,0.80400544};
-		up[]={-0.099490874,0.81619042,0.56915313};
-		aside[]={0.985066,5.2343239e-08,0.1721949};
+		dir[]={-0.14054422,-0.57777715,0.80400306};
+		up[]={-0.099490047,0.81619453,0.56914687};
+		aside[]={0.98506296,0,0.17219451};
 	};
 };
 binarizationWanted=0;
@@ -6551,13 +6551,13 @@ class Mission
 				angles[]={6.1914506,4.4793,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 				name="multi_tractor_object";
 			};
 			id=1608;
 			type="UK3CB_MEC_C_Tractor";
-			atlOffset=0.25904179;
 		};
 		class Item60
 		{
@@ -11976,7 +11976,7 @@ class Mission
 			type="mil_arrow";
 			colorName="ColorRed";
 			alpha=0;
-			angle=112.91496;
+			angle=112.91493;
 			id=1870;
 			atlOffset=-9.4175339e-05;
 		};
@@ -12024,7 +12024,7 @@ class Mission
 			type="mil_arrow";
 			colorName="ColorRed";
 			alpha=0;
-			angle=108.43394;
+			angle=108.43393;
 			id=1874;
 			atlOffset=-0.00011253357;
 		};
@@ -12138,7 +12138,7 @@ class Mission
 					};
 					id=1883;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=9.5367432e-06;
+					atlOffset=-0.0001115799;
 				};
 				class Item1
 				{
@@ -12149,13 +12149,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 					};
 					id=1884;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=2.2199459;
+					atlOffset=-0.0001115799;
 				};
 			};
 			class Attributes
@@ -12235,7 +12235,6 @@ class Mission
 					};
 					id=1886;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=0.0017871857;
 				};
 				class Item1
 				{
@@ -12246,13 +12245,12 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 					};
 					id=1887;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=2.221427;
 				};
 			};
 			class Attributes
@@ -12330,7 +12328,7 @@ class Mission
 					};
 					id=1890;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=0.0047721863;
+					atlOffset=9.5367432e-07;
 				};
 				class Item1
 				{
@@ -12341,13 +12339,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 					};
 					id=1891;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=2.2239246;
+					atlOffset=9.5367432e-07;
 				};
 			};
 			class Attributes
@@ -12427,7 +12425,6 @@ class Mission
 					};
 					id=1895;
 					type="UK3CB_MEE_O_CREW";
-					atlOffset=-1.9073486e-06;
 				};
 			};
 			class Attributes
@@ -12494,7 +12491,7 @@ class Mission
 					};
 					id=1897;
 					type="UK3CB_MEE_O_CREW";
-					atlOffset=-1.9073486e-06;
+					atlOffset=-9.5367432e-07;
 				};
 			};
 			class Attributes
@@ -14756,7 +14753,6 @@ class Mission
 					};
 					id=2000;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=4.7683716e-07;
 				};
 				class Item1
 				{
@@ -14767,14 +14763,13 @@ class Mission
 						angles[]={0,0.051173054,0};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						name="ambush_hilux_1G";
 					};
 					id=2001;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=2.0169108;
 				};
 				class Item2
 				{
@@ -14910,7 +14905,7 @@ class Mission
 					};
 					id=2009;
 					type="O_UAV_AI";
-					atlOffset=8.5830688e-06;
+					atlOffset=-0.00012969971;
 				};
 				class Item1
 				{
@@ -14921,13 +14916,14 @@ class Mission
 						angles[]={0,4.0233922,0};
 					};
 					side="East";
+					flags=4;
 					class Attributes
 					{
 						name="ambush_drone_1G";
 					};
 					id=2010;
 					type="O_UAV_AI";
-					atlOffset=0.96019411;
+					atlOffset=-0.00012969971;
 				};
 				class Item2
 				{
@@ -15227,14 +15223,13 @@ class Mission
 						angles[]={0,4.1961732,0};
 					};
 					side="East";
-					flags=2;
+					flags=6;
 					class Attributes
 					{
 						name="ambush_hilux_2G";
 					};
 					id=2031;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=2.1581612;
 				};
 				class Item2
 				{

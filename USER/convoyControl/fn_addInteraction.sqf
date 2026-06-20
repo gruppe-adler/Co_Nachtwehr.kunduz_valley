@@ -36,7 +36,7 @@ private _startAction = [
     "convoy_start",
     "Start convoy",
     "",                                         // TODO: icon
-    { systemChat "[convoy] START clicked"; call GRAD_convoyControl_fnc_start },
+    {  call GRAD_convoyControl_fnc_start },
     { (missionNamespace getVariable ["GRAD_convoy_state", "STOP"]) isEqualTo "STOP" }
 ] call ace_interact_menu_fnc_createAction;
 
@@ -53,7 +53,7 @@ private _stopAction = [
     "convoy_stop",
     "Stop convoy",
     "",                                         // TODO: icon
-    { systemChat "[convoy] STOP clicked"; call GRAD_convoyControl_fnc_stop },
+    {  call GRAD_convoyControl_fnc_stop },
     { (missionNamespace getVariable ["GRAD_convoy_state", "STOP"]) isEqualTo "START" }
 ] call ace_interact_menu_fnc_createAction;
 

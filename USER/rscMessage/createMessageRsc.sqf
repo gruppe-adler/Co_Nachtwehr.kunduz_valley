@@ -72,8 +72,8 @@ _ctrlMessage ctrlCommit 0;
 //
 // MAX_SCROLL_SPEED is in screen-widths per second (safeZoneW units), so it's
 // resolution independent. Tune these two to taste.
-#define MAX_SCROLL_SPEED (safeZoneW / 6)   // ~6s to cross one full screen width
-#define MIN_SCROLL_TIME  4                 // shortest a message ever scrolls for
+#define MAX_SCROLL_SPEED (safeZoneW / 11)   // ~6s to cross one full screen width
+#define MIN_SCROLL_TIME  6                 // shortest a message ever scrolls for
 
 private _startX = safeZoneW;
 private _endX = 0;
