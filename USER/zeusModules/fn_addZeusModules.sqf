@@ -69,6 +69,11 @@
     [] remoteExec ["FA_Zeus_fnc_transmission_07_bruecke", 2];
 }] call zen_custom_modules_fnc_register;
 
+["CO NACHTWEHR - Transmissions", "07 BRUECKE KAMEL", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_07_bruecke_kamel", 2];
+}] call zen_custom_modules_fnc_register;
+
 ["CO NACHTWEHR - Transmissions", "08 SANDSTURM", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_08_sandsturm", 2];
@@ -97,6 +102,11 @@
 ["CO NACHTWEHR - Transmissions", "MEDEVAC", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_medevac", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "KA-137 DROHNEN", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_ka137", 2];
 }] call zen_custom_modules_fnc_register;
 
 
