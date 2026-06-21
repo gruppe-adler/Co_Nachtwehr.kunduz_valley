@@ -282,6 +282,19 @@ class mission_12_RTB
     object = "OPZ";
 };
 
+class mission_13_missionEnd
+{
+    name = "mission_13_missionEnd";
+    sound[] = { "USER\sounds\mission_13_missionEnd.ogg", 2, 1, 100 };
+    titles[] = {0, ""};
+    customsubtitle[] = {
+        0, "An alle, hier OPZ — Auftrag NACHTWEHR abgeschlossen. Der Versorgungs- und Bauzug ist vollständig im Zielraum. Lima, Kamel, Zulu — hervorragende Luft-Boden-Zusammenarbeit unter schweren Bedingungen, das war saubere Arbeit. Übergabe an die Kräfte vor Ort ist erfolgt. Angriff auf die eigene Basis wurde erfolgreich abgewehrt. Es war mir eine Ehre. OPZ ENDE, NACHTWEHR ENDE."
+    };
+    duration = 38;
+    avatar = "user\rscMessage\opz.paa";
+    object = "OPZ";
+};
+
 
 
 class medevac
