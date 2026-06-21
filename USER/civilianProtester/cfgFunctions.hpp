@@ -5,5 +5,6 @@ class GRAD_civilianProtester {
         class protestLoop;
         class addAction;
         class react;
+        class reactVoice;
     };
 };

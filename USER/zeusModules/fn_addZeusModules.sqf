@@ -49,12 +49,12 @@
     [] remoteExec ["FA_Zeus_fnc_transmission_03_polka", 2];
 }] call zen_custom_modules_fnc_register;
 
-["CO NACHTWEHR - Transmissions", "04 EMIL", {
+["CO NACHTWEHR - Transmissions", "04 EMIL (automatic)", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_04_emil", 2];
 }] call zen_custom_modules_fnc_register;
 
-["CO NACHTWEHR - Transmissions", "05 NORA", {
+["CO NACHTWEHR - Transmissions", "05 NORA (automatic)", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_05_nora", 2];
 }] call zen_custom_modules_fnc_register;
@@ -64,9 +64,14 @@
     [] remoteExec ["FA_Zeus_fnc_transmission_06_sprengfalle", 2];
 }] call zen_custom_modules_fnc_register;
 
-["CO NACHTWEHR - Transmissions", "07 BRUECKE", {
+["CO NACHTWEHR - Transmissions", "07 BRUECKE (automatic)", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_07_bruecke", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "07 BRUECKE KAMEL (automatic)", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_07_bruecke_kamel", 2];
 }] call zen_custom_modules_fnc_register;
 
 ["CO NACHTWEHR - Transmissions", "08 SANDSTURM", {
@@ -79,12 +84,12 @@
     [] remoteExec ["FA_Zeus_fnc_transmission_09_sandsturm", 2];
 }] call zen_custom_modules_fnc_register;
 
-["CO NACHTWEHR - Transmissions", "10 IDA", {
+["CO NACHTWEHR - Transmissions", "10 IDA (automatic)", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_10_ida", 2];
 }] call zen_custom_modules_fnc_register;
 
-["CO NACHTWEHR - Transmissions", "11 SAMUEL", {
+["CO NACHTWEHR - Transmissions", "11 SAMUEL (automatic)", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_11_samuel", 2];
 }] call zen_custom_modules_fnc_register;
@@ -94,9 +99,23 @@
     [] remoteExec ["FA_Zeus_fnc_transmission_12_RTB", 2];
 }] call zen_custom_modules_fnc_register;
 
+["CO NACHTWEHR - Transmissions", "13 MISSION END", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_13_missionEnd", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "---", {
+    params ["_position", "_object"];
+}] call zen_custom_modules_fnc_register;
+
 ["CO NACHTWEHR - Transmissions", "MEDEVAC", {
     params ["_position", "_object"];
     [] remoteExec ["FA_Zeus_fnc_transmission_medevac", 2];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Transmissions", "KA-137 DROHNEN", {
+    params ["_position", "_object"];
+    [] remoteExec ["FA_Zeus_fnc_transmission_ka137", 2];
 }] call zen_custom_modules_fnc_register;
 
 

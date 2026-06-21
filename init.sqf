@@ -1,4 +1,4 @@
-enableSentences false;
+enableSentences true;
 enableRadio false;
 enableSaving [false, false];
 

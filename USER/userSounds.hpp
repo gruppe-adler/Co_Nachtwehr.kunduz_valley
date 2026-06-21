@@ -204,6 +204,19 @@ class mission_07_bruecke
     object = "OPZ";
 };
 
+class mission_07_bruecke_kamel
+{
+    name = "mission_07_bruecke_kamel";
+    sound[] = { "USER\sounds\mission_07_bruecke_kamel.ogg", 2, 1, 100 };
+    titles[] = {0, ""};
+    customsubtitle[] = {
+        0, "OPZ, hier Kamel — Bestätige. Marschweg vor uns nicht passierbar, wir weichen ab. Queren über die nächste Brücke weiter südlich und führen danach auf den Marschweg zurück. Konvoi bleibt geschlossen. Kamel Ende."
+    };
+    duration = 11;
+    avatar = "user\rscMessage\opz.paa";
+    object = "OPZ";
+};
+
 class mission_08_sandsturm
 {
     name = "mission_08_sandsturm";
@@ -269,6 +282,19 @@ class mission_12_RTB
     object = "OPZ";
 };
 
+class mission_13_missionEnd
+{
+    name = "mission_13_missionEnd";
+    sound[] = { "USER\sounds\mission_13_missionEnd.ogg", 2, 1, 100 };
+    titles[] = {0, ""};
+    customsubtitle[] = {
+        0, "An alle, hier OPZ — Auftrag NACHTWEHR abgeschlossen. Der Versorgungs- und Bauzug ist vollständig im Zielraum. Lima, Kamel, Zulu — hervorragende Luft-Boden-Zusammenarbeit unter schweren Bedingungen, das war saubere Arbeit. Übergabe an die Kräfte vor Ort ist erfolgt. Angriff auf die eigene Basis wurde erfolgreich abgewehrt. Es war mir eine Ehre. OPZ ENDE, NACHTWEHR ENDE."
+    };
+    duration = 38;
+    avatar = "user\rscMessage\opz.paa";
+    object = "OPZ";
+};
+
 
 
 class medevac
@@ -280,6 +306,21 @@ class medevac
         0, "Zulu-2, hier OPZ — Verwundete im Konvoi, dringend. Auftrag MEDEVAC: Anflug Konvoi, Abschnitt nicht gesichert. Lima sichert und markiert die Landezone. Aufnahme und Abflug zügig. AUSFÜHREN."
     };
     duration = 0;
+    avatar = "user\rscMessage\opz.paa";
+    object = "OPZ";
+};
+
+
+
+class ka137
+{
+    name = "ka137";
+    sound[] = { "USER\sounds\ka137.ogg", 2, 1, 100 };
+    titles[] = {0, ""};
+    customsubtitle[] = {
+        0, "Zulu, hier OPZ — ACHTUNG, Luftraumbedrohung! Heron erfasst mehrere unbemannte Luftfahrzeuge, Typ Ka-137, im Sektor — Bewaffnung nicht ausgeschlossen, behandelt sie als feindliche Kampfdrohnen. Priorität Luftabwehr: Drohnen aufklären und bekämpfen, bevor sie wirken können.AUSFÜHREN!"
+    };
+    duration = 22;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };

@@ -37,14 +37,15 @@ if (isNil "GRAD_civilianProtester_fnc_protestLoop") exitWith {
 };
 
 // ---- Tunables -------------------------------------------------------------
-// Protest idle animations cycled while the unit is undisturbed.
+// Protest idle animations. Each protester picks ONE of these and loops only
+// that one (no cycling between different anims, so there are no visible jumps).
+// Allowed loops and their matching "_out" transitions:
+//   Acts_JetsMarshallingStraight_loop -> Acts_JetsMarshallingStraight_out
+//   Acts_Kore_IdleNoWeapon_loop       -> Acts_Kore_IdleNoWeapon_out
 private _protestAnims = [
-    "Acts_ShockedUnarmed_2_Loop",
-    "HubBriefing_lookAround1",
-    "HubBriefing_lookAround2"
+    "Acts_JetsMarshallingStraight_loop",
+    "Acts_Kore_IdleNoWeapon_loop"
 ];
-// Cower animation — swap this when the final one is chosen.
-private _cowerAnim = "Acts_AidlPercMstpSnonWnonDnon_AmovPercMstpSnonWnonDnon_warmup_loop";
 // ---------------------------------------------------------------------------
 
 // Mark so we don't double-init and so other scripts can detect protesters.
@@ -54,9 +55,11 @@ _unit setVariable ["GRAD_protester_active", true, true];
 // Run setup authoritatively on the server.
 if (!isServer) exitWith {};
 
+// Pick one loop animation for this unit and stick with it.
+private _protestAnim = selectRandom _protestAnims;
+
 _unit setVariable ["GRAD_protester_state", "protesting", true];
-_unit setVariable ["GRAD_protester_anims", _protestAnims, true];
-_unit setVariable ["GRAD_protester_cowerAnim", _cowerAnim, true];
+_unit setVariable ["GRAD_protester_anim", _protestAnim, true];
 _unit setVariable ["GRAD_protester_weights", _weights, true];
 
 // Pacify so it behaves like a civilian until provoked.
