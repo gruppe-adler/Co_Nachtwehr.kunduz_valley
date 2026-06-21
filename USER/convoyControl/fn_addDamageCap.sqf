@@ -39,13 +39,38 @@ _vehicle addEventHandler ["HandleDamage", {
 
     private _cap = _unit getVariable ["GRAD_convoy_maxDamage", 0.88];
 
-    // The overall/structural damage is reported on the "" (empty) selection /
-    // hitIndex -1 pass. Clamp only that; leave individual hitpoints alone so the
-    // vehicle can still take component damage and become immobile.
-    if (_selection isEqualTo "" || _hitIndex isEqualTo -1) exitWith {
-        _damage min _cap
+    // _damage is the ABSOLUTE resulting damage for this selection (already
+    // includes prior damage), not a delta — so clamping it to _cap is correct
+    // regardless of how hurt the vehicle already was.
+
+    // Two paths can destroy the vehicle and both must be capped:
+    //   - the overall/structural pass:  _selection "" / _hitIndex -1
+    //   - the structural hull hitpoint reaching 1.0 ("hull"/"hit" on most
+    //     vehicles); a single hard hit here can kill the vehicle even while the
+    //     overall pass is clamped.
+    // Everything else (wheels, tracks, engine, fuel, glass) passes through so the
+    // vehicle still degrades and loses mobility — which is what retires it from
+    // the convoy.
+    private _isStructural =
+        _selection isEqualTo ""
+        || _hitIndex isEqualTo -1
+        || (toLowerANSI _hitPoint) in ["hull", "hit", "hithull", "hithull_1"];
+
+    if (_isStructural) exitWith {
+        // Cap at _cap, but never return LESS than the damage already on this
+        // selection — HandleDamage also fires for unrelated hitpoints, and on
+        // those passes _damage for the structural selection can read below the
+        // current value; returning it would heal the vehicle. Clamp to
+        // [current, cap] so it only ever holds or climbs, up to the cap.
+        private _current = if (_selection isEqualTo "" || _hitIndex isEqualTo -1) then {
+            damage _unit
+        } else {
+            _unit getHitIndex _hitIndex
+        };
+
+        (_damage min _cap) max _current
     };
 
-    // Per-part damage passes through unchanged.
+    // Per-part (mobility/cosmetic) damage passes through unchanged.
     _damage
 }];
