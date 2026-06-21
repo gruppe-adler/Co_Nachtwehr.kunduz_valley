@@ -54,6 +54,14 @@ if (isServer) then {
     private _convoyVehicles = [multi_barkas, multi_firefighter, multi_bulldozer, multi_tractor, multi_fuel, multi_material_1, multi_material_2];
     private _leader = _convoyVehicles select 0;
 
+    // Cap each vehicle's overall damage so they can be wrecked but never fully
+    // destroyed (a husk can't be driven or reassembled). HandleDamage only fires
+    // where the vehicle is local, so register on every machine (incl. JIP) in
+    // case control of a vehicle migrates to a client (remote driving).
+    {
+        [_x] remoteExec ["GRAD_convoyControl_fnc_addDamageCap", 0, _x];
+    } forEach _convoyVehicles;
+
     // Route: turn the path (from convoy_path_1_1..30 above) into MOVE waypoints
     // on the leader's group; NAGAS drives the leader along them.
     {

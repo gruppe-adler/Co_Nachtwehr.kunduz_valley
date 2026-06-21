@@ -124,7 +124,7 @@
   {
     params ["_position", "_object"];
 
-     [_position, 3000, 20, 90] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
+     [_position, 1500, 40, 90] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
 
   }] call zen_custom_modules_fnc_register;
 
@@ -132,7 +132,7 @@
   {
     params ["_position", "_object"];
 
-     [_position, 3000, 20, 270] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
+     [_position, 1500, 40, 270] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
 
   }] call zen_custom_modules_fnc_register;
 
@@ -140,7 +140,7 @@
   {
     params ["_position", "_object"];
 
-     [_position, 3000, 20, 0] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
+     [_position, 1500, 40, 0] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
 
   }] call zen_custom_modules_fnc_register;
 
@@ -148,7 +148,7 @@
   {
     params ["_position", "_object"];
 
-     [_position, 3000, 20, 180] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
+     [_position, 1500, 40, 180] remoteExec ["GRAD_sandStorm_fnc_createSandWall",2];
 
   }] call zen_custom_modules_fnc_register;
 
@@ -171,4 +171,9 @@
 ["CO NACHTWEHR - Scenario Flow", "Manual Trigger - Ambush 3", {
     params ["_position", "_object"];
     missionNamespace setVariable ["grad_startAmbush_3", true, true];
+}] call zen_custom_modules_fnc_register;
+
+["CO NACHTWEHR - Scenario Flow", "Reassemble Convoy", {
+    params ["_position", "_object"];
+    [] remoteExec ["GRAD_convoyControl_fnc_reassemble", 2];
 }] call zen_custom_modules_fnc_register;

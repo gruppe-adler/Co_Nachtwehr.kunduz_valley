@@ -6,5 +6,8 @@ class GRAD_convoyControl {
         class start;
         class stop;
         class getConvoyVehicles;
+        class getRouteAhead;
+        class reassemble;
+        class addDamageCap;
     };
 };

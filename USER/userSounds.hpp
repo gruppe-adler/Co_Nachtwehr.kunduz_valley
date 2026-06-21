@@ -213,8 +213,8 @@ class mission_07_bruecke_kamel
         0, "OPZ, hier Kamel — Bestätige. Marschweg vor uns nicht passierbar, wir weichen ab. Queren über die nächste Brücke weiter südlich und führen danach auf den Marschweg zurück. Konvoi bleibt geschlossen. Kamel Ende."
     };
     duration = 11;
-    avatar = "user\rscMessage\opz.paa";
-    object = "OPZ";
+    avatar = "user\rscMessage\kamel.paa";
+    object = "KAMEL";
 };
 
 class mission_08_sandsturm
