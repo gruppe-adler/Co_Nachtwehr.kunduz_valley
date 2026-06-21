@@ -23,8 +23,18 @@ _weights params [["_wFlee", 40], ["_wCower", 40], ["_wHostile", 20]];
 private _outcome = selectRandomWeighted ["flee", _wFlee, "cower", _wCower, "hostile", _wHostile];
 _unit setVariable ["GRAD_protester_state", _outcome, true];
 
-// Stop the protest idle loop and reset stance.
-_unit switchMove "";
+// Play a reaction voiceline (stub) depending on outcome.
+[_unit, _outcome] call GRAD_civilianProtester_fnc_reactVoice;
+
+// Stop the protest idle loop by playing its matching "_out" transition, so we
+// leave the loop cleanly instead of snapping to the default stance.
+private _protestAnim = _unit getVariable ["GRAD_protester_anim", ""];
+private _outAnim = switch (_protestAnim) do {
+    case "Acts_JetsMarshallingStraight_loop": { "Acts_JetsMarshallingStraight_out" };
+    case "Acts_Kore_IdleNoWeapon_loop":       { "Acts_Kore_IdleNoWeapon_out" };
+    default { "" };
+};
+if (_outAnim != "") then { _unit switchMove _outAnim; } else { _unit switchMove ""; };
 _unit enableAI "PATH";
 
 switch (_outcome) do {
@@ -58,12 +68,8 @@ switch (_outcome) do {
     case "cower": {
         _unit disableAI "PATH";
         _unit setBehaviour "CARELESS";
-        private _cowerAnim = _unit getVariable ["GRAD_protester_cowerAnim", ""];
-        if (_cowerAnim != "") then {
-            _unit switchMove _cowerAnim;
-        } else {
-            _unit playMoveNow "Acts_CivilHiding_2";
-        };
+        // Stay in place using the calm idle loop (only the two allowed anims).
+        _unit switchMove "Acts_Kore_IdleNoWeapon_loop";
     };
 
     // ---- HOSTILE ----------------------------------------------------------
