@@ -9,7 +9,7 @@
  *
  *  Parameters:
  *      0: OBJECT - the protester
- *      1: STRING - the reaction outcome: "flee" | "cower" | "hostile"
+ *      1: STRING - the reaction outcome: "flee" | "hostile"
  */
 
 params ["_unit", "_outcome"];
@@ -19,9 +19,8 @@ if (isNull _unit || {!alive _unit}) exitWith {};
 // Map each reaction type to a pool of CfgSounds entries. Fill these with the
 // real sound class names once the voicelines are recorded/defined.
 private _sounds = switch (_outcome) do {
-    case "flee":    { [/* "protester_flee_1", "protester_flee_2" */] };
-    case "cower":   { [/* "protester_cower_1", "protester_cower_2" */] };
-    case "hostile": { [/* "protester_hostile_1", "protester_hostile_2" */] };
+    case "flee":    { ["Rus1","Rus2","Rus3"] };
+    case "hostile": { ["Rus11","Rus12","Rus13"] };
     default { [] };
 };
 
@@ -30,5 +29,6 @@ if (_sounds isEqualTo []) exitWith {
     diag_log format ["[civilianProtester] reactVoice stub: no sound for outcome '%1'", _outcome];
 };
 
-// say3D is global; range/volume can be tuned as needed.
-_unit say3D (selectRandom _sounds);
+// say3D has local effect only, so push it to every client. range/volume can be
+// tuned as needed. "false" JIP arg: a late joiner won't replay a stale line.
+[_unit, selectRandom _sounds] remoteExec ["say3D", 0, false];

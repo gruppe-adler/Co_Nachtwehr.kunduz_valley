@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=2084;
+		nextID=2091;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=354;
+		nextID=370;
 	};
 	class Camera
 	{
-		pos[]={6060.7612,39.152168,4464.0703};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={3287.874,31.360258,7891.7021};
+		dir[]={0.77429599,-0.52704376,-0.35034466};
+		up[]={0.48019779,0.84981757,-0.21727377};
+		aside[]={-0.41224384,-1.4946272e-07,-0.91109824};
 	};
 };
 binarizationWanted=0;
@@ -86,13 +86,13 @@ addons[]=
 	"grad_civs_common",
 	"A3_Structures_F_Items_Vessels",
 	"cba_xeh",
-	"jbad_billboards"
+	"A3_Structures_F_Civ_InfoBoards"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=51;
+		items=50;
 		class Item0
 		{
 			className="A3_Modules_F_Heli";
@@ -422,11 +422,6 @@ class AddonsMetaData
 			className="grad_civs_common";
 			name="common";
 			author="AUTHOR";
-		};
-		class Item50
-		{
-			className="jbad_billboards";
-			name="jbad_billboards";
 		};
 	};
 };
@@ -6560,13 +6555,13 @@ class Mission
 				angles[]={6.1914506,4.4793,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				name="multi_tractor_object";
 			};
 			id=1608;
 			type="UK3CB_MEC_C_Tractor";
+			atlOffset=0.25904179;
 		};
 		class Item60
 		{
@@ -11951,7 +11946,7 @@ class Mission
 			type="mil_arrow";
 			colorName="ColorRed";
 			alpha=0;
-			angle=112.9149;
+			angle=112.91488;
 			id=1870;
 			atlOffset=-9.4175339e-05;
 		};
@@ -12113,7 +12108,7 @@ class Mission
 					};
 					id=1883;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=-0.0001115799;
+					atlOffset=9.5367432e-06;
 				};
 				class Item1
 				{
@@ -12124,13 +12119,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=1884;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=-0.0001115799;
+					atlOffset=2.2199459;
 				};
 			};
 			class Attributes
@@ -12210,6 +12205,7 @@ class Mission
 					};
 					id=1886;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=0.0017871857;
 				};
 				class Item1
 				{
@@ -12220,12 +12216,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=1887;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=2.221427;
 				};
 			};
 			class Attributes
@@ -12303,7 +12300,7 @@ class Mission
 					};
 					id=1890;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=9.5367432e-07;
+					atlOffset=0.0047721863;
 				};
 				class Item1
 				{
@@ -12314,13 +12311,13 @@ class Mission
 						angles[]={0,6.1179352,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 					};
 					id=1891;
 					type="UK3CB_MEE_O_CREW_2";
-					atlOffset=9.5367432e-07;
+					atlOffset=2.2239246;
 				};
 			};
 			class Attributes
@@ -12400,6 +12397,7 @@ class Mission
 					};
 					id=1895;
 					type="UK3CB_MEE_O_CREW";
+					atlOffset=-1.9073486e-06;
 				};
 			};
 			class Attributes
@@ -12466,7 +12464,7 @@ class Mission
 					};
 					id=1897;
 					type="UK3CB_MEE_O_CREW";
-					atlOffset=-9.5367432e-07;
+					atlOffset=-1.9073486e-06;
 				};
 			};
 			class Attributes
@@ -14717,6 +14715,7 @@ class Mission
 					};
 					id=2000;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=4.7683716e-07;
 				};
 				class Item1
 				{
@@ -14727,13 +14726,14 @@ class Mission
 						angles[]={0,0.051173054,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 						name="ambush_hilux_1G";
 					};
 					id=2001;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=2.0169108;
 				};
 				class Item2
 				{
@@ -14869,7 +14869,7 @@ class Mission
 					};
 					id=2009;
 					type="O_UAV_AI";
-					atlOffset=-0.00012969971;
+					atlOffset=8.5830688e-06;
 				};
 				class Item1
 				{
@@ -14880,14 +14880,13 @@ class Mission
 						angles[]={0,4.0233922,0};
 					};
 					side="East";
-					flags=4;
 					class Attributes
 					{
 						name="ambush_drone_1G";
 					};
 					id=2010;
 					type="O_UAV_AI";
-					atlOffset=-0.00012969971;
+					atlOffset=0.96019411;
 				};
 				class Item2
 				{
@@ -15187,13 +15186,14 @@ class Mission
 						angles[]={0,4.1961732,0};
 					};
 					side="East";
-					flags=6;
+					flags=2;
 					class Attributes
 					{
 						name="ambush_hilux_2G";
 					};
 					id=2031;
 					type="UK3CB_MEE_O_CREW_2";
+					atlOffset=2.1581612;
 				};
 				class Item2
 				{
@@ -15711,7 +15711,7 @@ class Mission
 			};
 			id=2067;
 			type="grad_civs_common_ExclusionZone";
-			atlOffset=-7.2479248e-05;
+			atlOffset=-7.1525574e-05;
 		};
 		class Item281
 		{
@@ -15787,34 +15787,68 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3298.8127,27.209936,7880.249};
-				angles[]={0,3.2068961,-0};
+				position[]={3298.5793,26.016361,7879.3833};
+				angles[]={0,1.670861,0};
 			};
 			side="Empty";
-			flags=1;
+			flags=5;
 			class Attributes
 			{
 			};
-			id=2081;
-			type="Jbad_board3";
-			atlOffset=1.1266708;
+			id=2089;
+			type="Land_Billboard_F";
+			atlOffset=-1.312376;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="data\prop.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item287
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3307.3345,26.866352,7895.4824};
-				angles[]={0,0.52652639,-0};
+				position[]={3306.6084,26.130119,7896.7612};
+				angles[]={0,1.670861,0};
 			};
 			side="Empty";
-			flags=1;
+			flags=5;
 			class Attributes
 			{
 			};
-			id=2083;
-			type="Jbad_board3";
-			atlOffset=0.77168274;
+			id=2090;
+			type="Land_Billboard_F";
+			atlOffset=-1.2062855;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="data\prop.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections

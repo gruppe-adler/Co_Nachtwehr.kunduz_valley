@@ -4,7 +4,7 @@
  *  Keeps the unit's single protest idle animation looping while its state is
  *  "protesting". Only ever (re-)issues that one anim, so there are no jumps
  *  between different animations. Stops automatically once the unit changes
- *  state (flee/cower/hostile) or dies.
+ *  state (flee/hostile) or dies.
  *  Server-side; switchMove propagates globally.
  *
  *  Parameters:

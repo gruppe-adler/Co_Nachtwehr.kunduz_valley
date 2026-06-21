@@ -3,8 +3,10 @@ class GRAD_civilianProtester {
         file = USER\civilianProtester;
         class initProtester;
         class protestLoop;
+        class chantLoop;
         class addAction;
         class react;
+        class resolve;
         class reactVoice;
     };
 };
