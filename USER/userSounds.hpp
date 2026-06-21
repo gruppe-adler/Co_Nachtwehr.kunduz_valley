@@ -275,7 +275,7 @@ class mission_12_RTB
     sound[] = { "USER\sounds\mission_12_RTB.ogg", 2, 1, 100 };
     titles[] = {0, ""};
     customsubtitle[] = {
-        0, "An alle Kräfte, hier OPZ — NOTLAGE! Basis wird durch starke Feindkräfte angegriffen. Mehrere Feindansätze aus verschiedenen Richtungen, eigene Sicherungskräfte gebunden. Feind versucht in den inneren Bereich einzudringen. Lima, Lageänderung: Auftrag schnellstmöglich Kräfte zur Unterstützung der Basis herauslösen. Zulu, unverzüglich zur Basis verlegen und Feindkräfte bekämpfen. Priorität ist die Verteidigung des Gefechtsstandes und der kritischen Infrastruktur. OPZ an alle: Dringende Unterstützung angefordert. AUSFÜHREN! KOMMEN."
+        0, "An alle Kräfte, hier OPZ — NOTLAGE! Basis wird durch starke Feindkräfte angegriffen. Mehrere Feindansätze aus verschiedenen Richtungen, eigene Sicherungskräfte gebunden. Feind versucht in den inneren Bereich einzudringen. Lima, Lageänderung: Auftrag schnellstmöglich Kräfte zur Unterstützung der Basis herauslösen. Zulu, unverzüglich zur Basis verlegen und Feindkräfte bekämpfen. Priorität ist die Verteidigung des Gefechtsstandes und der kritischen Infrastruktur. OPZ an alle: Dringende Unterstützung angefordert. AUSFÜHREN! ENDE."
     };
     duration = 38;
     avatar = "user\rscMessage\opz.paa";
@@ -305,7 +305,7 @@ class medevac
     customsubtitle[] = {
         0, "Zulu-2, hier OPZ — Verwundete im Konvoi, dringend. Auftrag MEDEVAC: Anflug Konvoi, Abschnitt nicht gesichert. Lima sichert und markiert die Landezone. Aufnahme und Abflug zügig. AUSFÜHREN."
     };
-    duration = 0;
+    duration = 14;
     avatar = "user\rscMessage\opz.paa";
     object = "OPZ";
 };

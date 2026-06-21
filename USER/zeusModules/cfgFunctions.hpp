@@ -19,6 +19,7 @@ class FA_Zeus {
 		class transmission_10_ida;
 		class transmission_11_samuel;
 		class transmission_12_RTB;
+		class transmission_13_missionEnd;
 		class transmission_medevac;
 		class transmission_ka137;
 	};
