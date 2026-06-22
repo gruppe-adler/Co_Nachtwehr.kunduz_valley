@@ -31,4 +31,4 @@ if (_sounds isEqualTo []) exitWith {
 
 // say3D has local effect only, so push it to every client. range/volume can be
 // tuned as needed. "false" JIP arg: a late joiner won't replay a stale line.
-[_unit, selectRandom _sounds] remoteExec ["say3D", 0, false];
+[cursorObject, [selectRandom _sounds, 150, 1, 1]] remoteExec ["say3D", 0, false];
